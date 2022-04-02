@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+    <span><a mat-icon-button routerLink="/">Admin Desk</a></span>
+    <span class="example-space"></span>
+    <span>
+        <!-- <a mat-icon-button routerLink="/login">Admin Login</a>
+     -->
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <span>HR</span>
+            </button>
+            <button mat-menu-item >
+              <span>Manager</span>
+            </button>
+            <button mat-menu-item>
+              <span>EMPLOYEE</span>
+            </button>
+          </mat-menu>
+          
+    
+    </span>
+</mat-toolbar>
+
+    
