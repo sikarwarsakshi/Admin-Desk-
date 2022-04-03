@@ -1,15 +1,16 @@
 export interface Employee {
-    firstname : string ;
-    lastname : string;
-    username : string;
-    email:string;
-    employeeId:string;
-    designation:string;
-    city:string;
-    state:string;
-    contact:string;
-    dateOfJoining:Date;
-    gender:string;
-    address:string;
-    roles:any;
+    firstname:string,
+    lastname:string,
+    username:"amar12",
+    password:"12345678",
+    email:"amar@gmail.com",
+    city:"Ujjain",
+    designation:"software developer",
+    state:"Madhya Pradesh",
+    address: "14 ShriRamNagar",
+    gender:"male",
+    contact:"7878965434",
+    employeeId:"EMP01",
+    dateOfJoining:Date,
+    role:string[]
     }

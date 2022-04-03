@@ -60,6 +60,9 @@ export class EmployeesListComponent implements OnInit {
     reloadCurrentPage(){
 
     }
+    addEmployee(){
+      
+    }
 
   panelOpenState: boolean = false;
  togglePanel() {

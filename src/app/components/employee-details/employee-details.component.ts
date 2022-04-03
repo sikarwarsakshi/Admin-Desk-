@@ -44,6 +44,7 @@ export class EmployeeDetailsComponent implements OnInit {
 
     var employee: Employee={
       firstname : values.firstName,
+      password: this.data.employee.password,
       lastname : values.lastName,
       email: values.email,
       employeeId: values.employeeId,
@@ -55,7 +56,7 @@ export class EmployeeDetailsComponent implements OnInit {
       gender: values.gender,
       address: values.address,
       username: values.username,
-      roles: this.data.employee.role
+      role: this.data.employee.role
     };
     
     employee.address = values.address;
