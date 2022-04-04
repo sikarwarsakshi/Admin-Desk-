@@ -1,10 +1,12 @@
 
-   <div align="end" class="d-flex">
-    <button type="button" (click)="addEmployee()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Employees</button>
+   <div align="end">
+  
 </div> 
 <div align="end" class="admin-options">
-  <mat-icon class="icons"  (click)="reloadCurrentPage()">refresh</mat-icon>
-  <mat-icon (click)="togglePanel()" class="material-icons-outlined icons">filter_alt</mat-icon>
+  <mat-icon class="actions icons"  (click)="reloadCurrentPage()">refresh</mat-icon>
+  <mat-icon (click)="togglePanel()" class="material-icons-outlined icons actions">filter_alt</mat-icon>
+  <button mat-raised-button color="primary" class="actions add-button" type="button" (click)="addEmployee()">Add Employees</button>
+
 </div>
 
 <div class="filter-expansion">
@@ -66,8 +68,8 @@
     
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="updateEmployee(element.id, element)">Update</button>
-    <button mat-menu-item (click)="showDetails()">Show Full Details</button>
-    <button mat-menu-item (click)="deleteEmployee()">Delete</button>
+    <button mat-menu-item (click)="showDetails(element.id, element)">Show Full Details</button>
+    <button mat-menu-item (click)="deleteEmployee(element.id)">Delete</button>
   </mat-menu>  
     </td>
   </ng-container>

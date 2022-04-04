@@ -1,0 +1,228 @@
+<mat-dialog-content>
+    <div>  
+    <form [formGroup]="empForm" (ngSubmit)="onSubmit()" class="example-form">
+         <h1>Enter Details!!</h1>
+          <table class="example-full-width" cellspacing="0">
+            <tr>
+              <td><mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Username</mat-label>
+                <input name="username" formControlName="username" matInput>
+              </mat-form-field></td>
+              </tr>
+            <tr>
+            
+            <td><mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Firstname</mat-label>
+              <input name="firstname" formControlName="firstName" matInput>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label> Lastname </mat-label>
+              <input name="lastname" formControlName="lastName" matInput>
+            </mat-form-field></td>
+            </tr>
+      
+       <tr>
+          <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input name="email" formControlName="email" matInput>
+            </mat-form-field><br>
+        </tr>
+        <tr>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input  matInput formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Password" name="password">
+            </mat-form-field>
+        </tr>
+        <tr>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Contact</mat-label>
+              <input name="contact" formControlName="contact" matInput>
+            </mat-form-field>
+        </tr>
+        <tr>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>EmployeeId</mat-label>
+              <input name="employeeId" formControlName="employeeId" matInput>
+            </mat-form-field>
+        </tr>
+          <tr>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Address</mat-label>
+              <input name="address" formControlName="address" matInput>
+            </mat-form-field>
+        </tr>
+    <tr>
+            <td><mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>City</mat-label>
+              <input name="city" formControlName="city" matInput>
+          </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <!-- <mat-label>State</mat-label>
+            <input name="state" formControlName="state" matInput> -->
+
+            <mat-select formControlName="state">
+                <mat-option value="Andhra Pradesh">Andhra Pradesh</mat-option>
+                <mat-option value="Arunachal Pradesh">Arunachal Pradesh</mat-option>
+                <mat-option value="Bihar">Bihar</mat-option>
+                <mat-option value="Chhattisgarh">Chhattisgarh</mat-option>
+                <mat-option value="Goa">Goa</mat-option>
+                <mat-option value="Gujarat">Gujarat</mat-option>
+                <mat-option value="Haryana">Haryana</mat-option>
+                <mat-option value="Himachal Pradesh">Himachal Pradesh</mat-option>
+                <mat-option value="Jharkhand">Jharkhand</mat-option>
+                <mat-option value="Karnataka">Karnataka</mat-option>
+                <mat-option value="Kerala">Kerala</mat-option>
+                <mat-option value="Assam">Assam</mat-option>
+                <mat-option value="Madhya Pradesh">Madhya Pradesh</mat-option>
+                <mat-option value="Maharashtra">Maharashtra</mat-option>
+                <mat-option value="Manipur">Manipur</mat-option>
+                <mat-option value="Meghalaya">Meghalaya</mat-option>
+                <mat-option value="Mizoram">Mizoram</mat-option>
+                <mat-option value="Nagaland">Nagaland</mat-option>
+                <mat-option value="Odisha">Odisha</mat-option>
+                <mat-option value="Punjab">Punjab</mat-option>
+                <mat-option value="Rajasthan">Rajasthan</mat-option>
+                <mat-option value="Sikkim">Sikkim</mat-option>
+                <mat-option value="Tamil Nadu">Tamil Nadu</mat-option>
+                <mat-option value="telangana">telangana</mat-option>
+                <mat-option value="Tripura">Tripura</mat-option>
+                <mat-option value="Uttarakhand">Uttarakhand</mat-option>
+                <mat-option value="Uttar Pradesh">Uttar Pradesh</mat-option>
+                <mat-option value="West Bengal">West Bengal</mat-option>
+                
+              </mat-select>
+          </mat-form-field></td>
+        </tr>    
+          <tr>        
+          <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Designation</mat-label>
+              <input name="designation" formControlName="designation" matInput>
+            </mat-form-field>
+        </tr>
+  
+        <tr>
+            <mat-form-field appearance="outline">
+                <mat-label>Select Gender</mat-label>
+                <mat-select formControlName="gender">
+                  <mat-option value="male">Male</mat-option>
+                  <mat-option value="female">Female</mat-option>
+                  <mat-option value="others">Others</mat-option>
+                </mat-select>
+              </mat-form-field>
+             </tr>
+             <tr>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Date of Joining</mat-label>
+                <input matInput name="dateOfJoining" formControlName="dateOfJoining"  [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </tr>
+            <section>
+              <div class="example-label"></div>
+              <div class="example-button-row">
+                <button mat-dialog-close type="submit" mat-raised-button>Submit</button>
+                </div>
+                </section>
+               
+      </table>
+      
+        </form>
+      </div>
+      </mat-dialog-content>
+<!-- <mat-dialog-content>
+    <div>  
+    <form [formGroup]="empForm" (ngSubmit)="onSubmit()" class="example-form">
+         <h1>Enter Details!!</h1>
+          <table class="example-full-width" cellspacing="0">
+            <tr>  
+              <td><mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Username</mat-label>
+                <input name="username" formControlName="username" matInput>
+              </mat-form-field></td>
+              </tr>
+            <tr>
+            <td><mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Firstname</mat-label>
+              <input name="firstname" formControlName="firstName" matInput>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label> Lastname </mat-label>
+              <input name="lastname" formControlName="lastName" matInput>
+            </mat-form-field></td>
+            </tr>
+      
+         
+            <td></td>
+          
+          </table>
+          <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input name="email" formControlName="email" matInput>
+            </mat-form-field><br>
+      
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>EmployeeId</mat-label>
+              <input name="employeeId" formControlName="employeeId" matInput>
+            </mat-form-field>
+        
+          <p>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Address</mat-label>
+              <input name="address" formControlName="address" matInput>
+            </mat-form-field>
+            
+        
+          <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>City</mat-label>
+              <input name="city" formControlName="city" matInput>
+          </mat-form-field></td>
+          <br></tr>
+              
+      
+            
+            <table><td><tr><mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>State</mat-label>
+              <input name="state" formControlName="state" matInput>
+            </mat-form-field></tr></td><br></table>
+      
+          
+          <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Designation</mat-label>
+              <input name="designation" formControlName="designation" matInput>
+            </mat-form-field><br>
+      
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Contact</mat-label>
+              <input name="contact" formControlName="contact" matInput>
+            </mat-form-field><br>
+             
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Gender</mat-label>
+              <mat-radio-group formControlName="gender">
+                <mat-radio-button value="Male">Male</mat-radio-button>
+                <mat-radio-button value="Female">Female</mat-radio-button>
+                <mat-radio-button value="Others">Others</mat-radio-button>
+              </mat-radio-group>
+            </mat-form-field><br>
+      
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Date of Joining</mat-label>
+              <input matInput name="dateOfJoining" formControlName="dateOfJoining"  [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+      
+            <section>
+              <div class="example-label"></div>
+              <div class="example-button-row">
+                <button  type="submit" mat-raised-button>Submit</button>
+                </div>
+                </section>
+               
+      </table>
+      
+        </form>
+      </div>
+      </mat-dialog-content> -->

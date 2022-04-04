@@ -1,0 +1,97 @@
+<mat-dialog-content>
+    <div>
+        <form [formGroup]="empForm" (ngSubmit)="onSubmitEmployeeForm()" class="example-form">
+            <h1>Enter Details!!</h1>
+            <table class="form-fields" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="form-fields" appearance="outline">
+                            <mat-label>Username</mat-label>
+                            <input name="username" formControlName="username" matInput>
+                        </mat-form-field>
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <mat-form-field class="user" appearance="outline">
+                            <mat-label>Firstname</mat-label>
+                            <input name="firstname" formControlName="firstName" matInput>
+                        </mat-form-field>
+                        <mat-form-field class="user" appearance="outline">
+                            <mat-label> Lastname </mat-label>
+                            <input name="lastname" formControlName="lastName" matInput>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                <mat-form-field class="form-fields" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input name="email" formControlName="email" matInput>
+                </mat-form-field>
+            </tr>
+            <tr>
+                <mat-form-field class="form-fields" appearance="outline">
+                    <mat-label>EmployeeId</mat-label>
+                    <input name="employeeId" formControlName="employeeId" matInput>
+                </mat-form-field>
+            </tr>
+            <tr>
+                <mat-form-field class="form-fields" appearance="outline">
+                    <mat-label>Address</mat-label>
+                    <input name="address" formControlName="address" matInput>
+                </mat-form-field>
+            </tr>
+                <tr>
+                        <mat-form-field class="form-fields" appearance="outline">
+                            <mat-label>City</mat-label>
+                            <input name="city" formControlName="city" matInput>
+                        </mat-form-field>
+                 
+                </tr>
+
+
+
+                <tr>
+                    <mat-form-field class="form-fields" appearance="outline">
+                        <mat-label>State</mat-label>
+                        <input name="state" formControlName="state" matInput>
+                    </mat-form-field>
+                </tr>
+
+                <tr>
+                <mat-form-field class="form-fields" appearance="outline">
+                    <mat-label>Designation</mat-label>
+                    <input name="designation" formControlName="designation" matInput>
+                </mat-form-field>
+            </tr>
+            <tr>
+                <mat-form-field class="form-fields" appearance="outline">
+                    <mat-label>Contact</mat-label>
+                    <input name="contact" formControlName="contact" matInput>
+                </mat-form-field>
+            </tr>
+            <tr>
+                <mat-form-field class="form-fields" appearance="outline">
+                    <mat-label>Gender</mat-label>
+                    <input name="gender" formControlName="gender" matInput>
+                </mat-form-field>
+            </tr>
+            <tr>
+                <mat-form-field class="form-fields" appearance="outline">
+                    <mat-label>DateOfJoining</mat-label>
+                    <input name="dateOfJoining" formControlName="dateOfJoining" matInput>
+                </mat-form-field>
+            </tr>
+            <tr>
+                <section>
+                    <div class="button-row">
+                        <button type="submit" color="primary" mat-raised-button>Submit</button>
+                    </div>
+                </section>
+            </tr>
+            </table>
+        </form>
+    </div>
+</mat-dialog-content>

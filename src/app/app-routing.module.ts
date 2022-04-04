@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { EmployeesListComponent } from './components/employees-list/employees-list.component';
+import { AuthGuard } from './service/auth.guard';
 const routes: Routes = [
 
   {
     path:'',
     component:HomeComponent,
-    pathMatch:'full'
+    pathMatch:'full',
+    canActivate: [AuthGuard]
   },
   {
     path:"login",
@@ -18,7 +20,8 @@ const routes: Routes = [
   {
     path:"employees-list",
     component:EmployeesListComponent,
-    pathMatch:"full"
+    pathMatch:"full",
+    canActivate: [AuthGuard]
   }
 ];
 

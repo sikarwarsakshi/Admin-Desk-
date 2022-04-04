@@ -1,93 +1,50 @@
 <mat-dialog-content>
-    <form [formGroup]="empForm" (ngSubmit)="onSubmitEmployeeForm()" class="example-form">
-       <h1>Enter Details!!</h1>
-        <table class="example-full-width" cellspacing="0">
-          <tr>
-    
-            
-            <td><mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>Username</mat-label>
-              <input name="username" formControlName="username" matInput>
-            </mat-form-field></td>
-            </tr>
-      
-          <tr>
-          
-          <td><mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Firstname</mat-label>
-            <input name="firstname" formControlName="firstName" matInput>
-          </mat-form-field>
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label> Lastname </mat-label>
-            <input name="lastname" formControlName="lastName" matInput>
-          </mat-form-field></td>
-          </tr>
-    
-       
-          <td></td>
-        
-        </table>
-        <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Email</mat-label>
-            <input name="email" formControlName="email" matInput>
-          </mat-form-field><br>
-    
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>EmployeeId</mat-label>
-            <input name="employeeId" formControlName="employeeId" matInput>
-          </mat-form-field>
-      
-        <p>
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Address</mat-label>
-            <input name="address" formControlName="address" matInput>
-          </mat-form-field>
-          
-      
-        <table class="example-full-width" cellspacing="0"><tr>
-          <td><mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>City</mat-label>
-            <input name="city" formControlName="city" matInput>
-        </mat-form-field></td>
-        <br></tr>
-            
-    
-          
-          <table><td><tr><mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>State</mat-label>
-            <input name="state" formControlName="state" matInput>
-          </mat-form-field></tr></td><br></table>
-    
-        
-        <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Designation</mat-label>
-            <input name="designation" formControlName="designation" matInput>
-          </mat-form-field><br>
-    
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Contact</mat-label>
-            <input name="contact" formControlName="contact" matInput>
-          </mat-form-field><br>
-           
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Gender</mat-label>
-            <input name="gender" formControlName="gender" matInput>
-          </mat-form-field><br>
-    
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>DateOfJoining</mat-label>
-            <input name="dateOfJoining" formControlName="dateOfJoining" matInput>
-          </mat-form-field>
-    
-          <section>
-            <div class="example-label"></div>
-            <div class="example-button-row">
-              <button  type="submit" mat-raised-button>Submit</button>
-              </div>
-              </section>
-             
-    </table>
-    
-      </form>
-    
-    </mat-dialog-content>
+  <h2>Employee Details</h2>
+  <table>
+    <tr>
+      <th>Username</th>
+      <td>{{ employee.username }}</td>
+    </tr>
+    <tr>
+      <th>EmployeeId</th>
+      <td>{{ employee.employeeId }}</td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td><p>{{ employee.firstname + " " + employee.lastname}}</p></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>{{ employee.email }}</td>
+    </tr>
+    <tr>
+      <th>Designation</th>
+      <td>{{ employee.designation }}</td>
+    </tr>
+    <tr>
+      <th>Contact</th>
+      <td>{{ employee.contact }}</td>
+    </tr>
+    <tr>
+      <th>Date Of Joining</th>
+      <td>{{ employee.dateOfJoining }}</td>
+    </tr>
+    <tr>
+      <th>Gender</th>
+      <td>{{ employee.gender}}</td>
+    </tr>
+    <tr>
+    <tr>
+      <th>Address</th>
+      <td>{{ employee.address }}</td>
+    </tr>
+    <tr>
+      <th>City</th>
+      <td>{{ employee.city }}</td>
+    </tr>
+    <tr>
+      <th>State</th>
+      <td>{{ employee.state }}</td>
+    </tr>
+  </table>
+</mat-dialog-content>

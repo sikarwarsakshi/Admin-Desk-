@@ -20,6 +20,14 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
+import { CreateEmployeeComponent } from './components/create-employee/create-employee.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+// import { MatInputModule } from '@angular/material/input';
 // @NgModule({
 //   declarations:,
 //   imports:,
@@ -34,7 +42,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     HomeComponent,
     LoginComponent,
     EmployeesListComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    UpdateEmployeeComponent,
+    CreateEmployeeComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +60,12 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatTableModule,
     MatMenuModule,
     MatExpansionModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatRadioModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,9 @@
+.button-row{
+    text-align: center;
+}
+.form-fields{
+    width: 100%;
+}
+.user:first-child{
+    margin-right: 5px;
+}

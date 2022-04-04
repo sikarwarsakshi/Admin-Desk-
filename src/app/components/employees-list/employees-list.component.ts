@@ -5,6 +5,8 @@ import { ApiService } from 'src/app/service/api.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { EmployeeDetailsComponent } from '../employee-details/employee-details.component';
+import { UpdateEmployeeComponent } from '../update-employee/update-employee.component';
+import { CreateEmployeeComponent } from '../create-employee/create-employee.component';
 
 
 @Component({
@@ -39,9 +41,9 @@ export class EmployeesListComponent implements OnInit {
     }
 
     updateEmployee(empId:string,employee:any){
-      this.dialog.open(EmployeeDetailsComponent,{
-        width: '60%',
-        data: {empId,employee}
+      this.dialog.open(UpdateEmployeeComponent,{
+       
+        data: {empId,employee,page: "update"}
       });
      
       // this.apiService.updateEmployee(empId,employee).subscribe(resData=>{
@@ -51,17 +53,28 @@ export class EmployeesListComponent implements OnInit {
 
       // });
     }
-    deleteEmployee(){
-
+    deleteEmployee(userId: string){
+      this.apiService.deleteEmployee(userId).subscribe(resData=>{
+        console.log(resData);
+        this.ngOnInit();
+      });
+     
     }
-    showDetails(){
+    showDetails(empId:string,employee:any){
+      this.dialog.open(EmployeeDetailsComponent,{
+        width: '50%',
+        data: {empId,employee,page: "details"}
+      });
 
     }
     reloadCurrentPage(){
 
     }
     addEmployee(){
-      
+      this.dialog.open(CreateEmployeeComponent,{
+        
+      });
+      this.dialog.afterAllClosed.subscribe(()=>{this.ngOnInit()});
     }
 
   panelOpenState: boolean = false;

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-login',
@@ -7,27 +9,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  credentials={
-    username:'',
-    password:''
-  }
-
-  constructor() { }
+username='';
+password='';
+accessToken='';
+role='';
+  constructor(private apiService: ApiService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit()
   {
+      this.apiService.login(this.username,this.password).subscribe(resData=>{
+         this.accessToken = resData.accessToken;
+         this.role = resData.roles[0];
+         this.apiService.saveUserDetails(this.role,this.accessToken);
+        if(this.role === "ROLE_ADMIN"){
+          this.router.navigate(['employees-list']);
+        }
+      },
+      errData=>{
+          console.log(errData);
+      });
     //console.log("form is submitted");
-      if((this.credentials.username!='' && this.credentials.password!='') && (this.credentials.username!=null && this.credentials.password))
-      {
-        console.log("we have submit the form to server");
-      }
-      else
-      {
-        console.log("Fields are empty");
-      }
+      // if((this.credentials.username!='' && this.credentials.password!='') && (this.credentials.username!=null && this.credentials.password))
+      // {
+      //   console.log("we have submit the form to server");
+      // }
+      // else
+      // {
+      //   console.log("Fields are empty");
+      // }
   }
 
 }
