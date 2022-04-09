@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { EmployeeDetailsComponent } from '../employee-details/employee-details.component';
 import { UpdateEmployeeComponent } from '../update-employee/update-employee.component';
 import { CreateEmployeeComponent } from '../create-employee/create-employee.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,7 +24,8 @@ export class EmployeesListComponent implements OnInit {
 
   constructor(private formbuilder: FormBuilder,
     private apiService: ApiService,
-    private dialog: MatDialog) {
+    private dialog: MatDialog,
+    private router: Router) {
     
    }
 
@@ -85,5 +87,9 @@ export class EmployeesListComponent implements OnInit {
 applyFilter(event: Event) {
   const filterValue = (event.target as HTMLInputElement).value;
   this.dataSource.filter = filterValue.trim().toLowerCase();
+}
+logout(){
+  this.apiService.logout();
+  this.router.navigate(["login"]);
 }
 }

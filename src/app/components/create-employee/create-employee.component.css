@@ -1,3 +1,9 @@
 table,td,mat-form-field{
     width: 100%;
 }
+button{
+
+}
+.alert-text{
+    color:red;
+}

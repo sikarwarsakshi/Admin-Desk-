@@ -8,7 +8,18 @@
                 <mat-label>Username</mat-label>
                 <input name="username" formControlName="username" matInput>
               </mat-form-field></td>
-              </tr>
+            </tr>
+            <tr>
+              <div *ngIf="username?.invalid && (username?.dirty || username?.touched)">
+
+                <div *ngIf="username?.errors?.['required']">
+                  <p class="alert-text">Username is required.</p>
+                </div>
+                <div *ngIf="username?.errors?.['minlength']">
+                  <p class="alert-text">Username must be at least 4 characters long.</p>
+                </div>
+                </div>
+            </tr>
             <tr>
             
             <td><mat-form-field class="example-full-width" appearance="outline">
@@ -20,6 +31,15 @@
               <input name="lastname" formControlName="lastName" matInput>
             </mat-form-field></td>
             </tr>
+            <tr>
+                <div *ngIf="firstname?.invalid && (firstname?.dirty || firstname?.touched) || 
+                lastname?.invalid && (lastname?.dirty || lastname?.touched)">
+  
+                  <div *ngIf="lastname?.errors?.['required'] || firstname?.errors?.['required']">
+                    <p class="alert-text">Name is required.</p>
+                  </div>
+                  </div>
+              </tr>
       
        <tr>
           <mat-form-field class="example-full-width" appearance="outline">
@@ -28,16 +48,51 @@
             </mat-form-field><br>
         </tr>
         <tr>
+            <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+
+                <div *ngIf="email?.errors?.['required']">
+                  <p class="alert-text">Email is required.</p>
+                </div>
+                <div *ngIf="email?.errors?.['email']">
+                  <p class="alert-text">Email is invalid.</p>
+                </div>
+                </div>
+        </tr>
+
+        <tr>
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Password</mat-label>
-                <input  matInput formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Password" name="password">
+                <input  matInput formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Username" name="password">
             </mat-form-field>
         </tr>
+        <tr>
+            <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+                <div *ngIf="password?.errors?.['required']">
+                  <p class="alert-text">Password is required.</p>
+                </div>
+                <div *ngIf="password?.errors?.['minlength']">
+                  <p class="alert-text">Password must be at least 8 characters long.</p>
+                </div>
+                </div>
+            <br>
+        </tr>
+
         <tr>
             <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Contact</mat-label>
               <input name="contact" formControlName="contact" matInput>
             </mat-form-field>
+        </tr>
+        <tr>
+            <div *ngIf="contact?.invalid && (contact?.dirty || contact?.touched)">
+                <div *ngIf="contact?.errors?.['required']">
+                  <p class="alert-text">Phone number is required.</p>
+                </div>
+                <div *ngIf="contact?.errors?.['minlength'] || contact?.errors?.['maxlength']">
+                  <p class="alert-text">Contact number must consist 10 numbers</p>
+                </div>
+                </div>
+            <br>
         </tr>
         <tr>
             <mat-form-field class="example-full-width" appearance="outline">
@@ -51,15 +106,36 @@
               <input name="address" formControlName="address" matInput>
             </mat-form-field>
         </tr>
+        <tr>
+            <div *ngIf="address?.invalid && (address?.dirty || address?.touched)">
+                <div *ngIf="address?.errors?.['required']">
+                  <p class="alert-text">Address is required.</p>
+                </div>
+                </div>
+            <br>
+        </tr>
     <tr>
             <td><mat-form-field class="example-full-width" appearance="outline">
               <mat-label>City</mat-label>
               <input name="city" formControlName="city" matInput>
           </mat-form-field>
+          <tr>
+            <div *ngIf="city?.invalid && (city?.dirty || city?.touched)">
+                <div *ngIf="city?.errors?.['required']">
+                  <p class="alert-text">City is required.</p>
+                </div>
+                </div>
+            <br>
+        </tr>
+
+
+
         <mat-form-field class="example-full-width" appearance="outline">
             <!-- <mat-label>State</mat-label>
             <input name="state" formControlName="state" matInput> -->
 
+            
+            <mat-label>State</mat-label>
             <mat-select formControlName="state">
                 <mat-option value="Andhra Pradesh">Andhra Pradesh</mat-option>
                 <mat-option value="Arunachal Pradesh">Arunachal Pradesh</mat-option>
@@ -96,7 +172,13 @@
           <tr>        
           <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Designation</mat-label>
-              <input name="designation" formControlName="designation" matInput>
+              <!-- <input name="designation" formControlName="designation" matInput> -->
+              <mat-select formControlName="Designation">
+                <mat-option value="Admin">Admin</mat-option>
+                <mat-option value="Manager">Manager</mat-option>
+                <mat-option value="Employee">Employee</mat-option>
+                
+            </mat-select>
             </mat-form-field>
         </tr>
   
@@ -121,7 +203,7 @@
             <section>
               <div class="example-label"></div>
               <div class="example-button-row">
-                <button mat-dialog-close type="submit" mat-raised-button>Submit</button>
+                <button mat-dialog-close type="submit" color="primary" mat-raised-button>Submit</button>
                 </div>
                 </section>
                

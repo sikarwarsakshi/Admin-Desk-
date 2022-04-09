@@ -17,6 +17,7 @@ role='';
     private router: Router) { }
 
   ngOnInit(): void {
+    this.checkUser();
   }
 
   onSubmit()
@@ -28,6 +29,7 @@ role='';
         if(this.role === "ROLE_ADMIN"){
           this.router.navigate(['employees-list']);
         }
+
       },
       errData=>{
           console.log(errData);
@@ -41,6 +43,16 @@ role='';
       // {
       //   console.log("Fields are empty");
       // }
+
+      
   }
+  checkUser(){{
+    let isLoggedIn = this.apiService.isLoggedIn();
+    if(isLoggedIn){
+    let role = this.apiService.getRole();
+    if(role === "ROLE_ADMIN") this.router.navigate(["employees-list"]);
+    else this.router.navigate(["user"]);
+    }
+  }}
 
 }

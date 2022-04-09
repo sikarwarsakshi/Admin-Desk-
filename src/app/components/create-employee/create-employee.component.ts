@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Employee } from 'src/app/model/employee';
 import { ApiService } from 'src/app/service/api.service';
 
@@ -15,18 +15,18 @@ export class CreateEmployeeComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private apiService: ApiService) { 
     this.empForm = this.formBuilder.group({
-      firstName: [''],
-      lastName:[''],
-       email:[''],
-      contact:[''],
+      firstName: ['',[Validators.required]],
+      lastName:['',[Validators.required]],
+       email:['',[Validators.required]],
+      contact:['',[Validators.required]],
       gender: this.floatLabelControl,
-      password:[''],
+      password:['',[Validators.required]],
       // status:[''],
-      address:[''],
-      city:[''],
-      state:[''],
+      address:['',[Validators.required]],
+      city:['',[Validators.required]],
+      state:['',[Validators.required]],
       designation:[''],
-      username:[''],
+      username:['', [Validators.required,Validators.minLength(4)]],
       employeeId:[''],
       dateOfJoining:[''],
       //bloodGroup:['']
@@ -59,4 +59,15 @@ export class CreateEmployeeComponent implements OnInit {
     });
     console.log(this.empForm.value);
   }
+
+  get username() { return this.empForm.get('username'); }
+  get firstname() { return this.empForm.get('firstname'); }
+  get lastname() { return this.empForm.get('lastname'); }
+  get email() { return this.empForm.get('email'); }
+  get password() { return this.empForm.get('password'); }
+  get contact() { return this.empForm.get('contact'); }
+  get address() {return this.empForm.get('address');}
+  get city() {return this.empForm.get('city');}
+  get state() {return this.empForm.get('state');}
+
 } 

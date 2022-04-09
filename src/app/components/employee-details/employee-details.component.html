@@ -1,6 +1,6 @@
 <mat-dialog-content>
   <h2>Employee Details</h2>
-  <table>
+  <table class="mat-elevation-z8 demo-table">
     <tr>
       <th>Username</th>
       <td>{{ employee.username }}</td>
@@ -46,5 +46,27 @@
       <th>State</th>
       <td>{{ employee.state }}</td>
     </tr>
-  </table>
-</mat-dialog-content>
+  </table> 
+
+  <!--
+</mat-dialog-content> -->
+
+<!-- <table mat-table class="mat-elevation-z8 demo-table">
+   Position Column 
+  <ng-container matColumnDef="demo-username">
+    <th mat-header-cell *matHeaderCellDef> Username </th>
+    <td mat-cell *matCellDef="let element"> {{employee.username}} </td>
+  </ng-container>
+
+   Name Column 
+  <ng-container matColumnDef="demo-employeeId">
+    <th mat-header-cell *matHeaderCellDef> EmployeeId </th>
+    <td mat-cell *matCellDef="let element"> {{employee.employeeId}} </td>
+  </ng-container>
+
+   Weight Column 
+  <ng-container matColumnDef="demo-name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{employee.firstname}} </td>
+  </ng-container>
+  </table> -->
