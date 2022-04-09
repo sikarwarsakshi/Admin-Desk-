@@ -64,5 +64,18 @@ export class ApiService {
     localStorage.setItem('accessToken',accessToken);
     localStorage.setItem('role',role);
   }
+  isLoggedIn(){
+		if(localStorage.getItem('accessToken')!==undefined) return true;
+		else return false;
+	}
 
+  logout(){
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('role');
+    this.isAuthenticated = false;
+  }
+
+  getAllLeaves(){
+    return this.http.get<any>(`${this.apiBaseUrl}/api/auth/show-leaves`);
+  }
 }

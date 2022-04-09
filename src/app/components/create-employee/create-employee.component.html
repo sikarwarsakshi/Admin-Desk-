@@ -1,217 +1,224 @@
 <mat-dialog-content>
-    <div>  
+  <div>
     <form [formGroup]="empForm" (ngSubmit)="onSubmit()" class="example-form">
-         <h1>Enter Details!!</h1>
-          <table class="example-full-width" cellspacing="0">
-            <tr>
-              <td><mat-form-field class="example-full-width" appearance="outline">
-                <mat-label>Username</mat-label>
-                <input name="username" formControlName="username" matInput>
-              </mat-form-field></td>
-            </tr>
-            <tr>
-              <div *ngIf="username?.invalid && (username?.dirty || username?.touched)">
+      <h3>Enter Details!!</h3>
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Username</mat-label>
+              <input name="username" formControlName="username" matInput>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <div *ngIf="username?.invalid && (username?.dirty || username?.touched)">
 
-                <div *ngIf="username?.errors?.['required']">
-                  <p class="alert-text">Username is required.</p>
-                </div>
-                <div *ngIf="username?.errors?.['minlength']">
-                  <p class="alert-text">Username must be at least 4 characters long.</p>
-                </div>
-                </div>
-            </tr>
-            <tr>
-            
-            <td><mat-form-field class="example-full-width" appearance="outline">
+            <div *ngIf="username?.errors?.['required']">
+              <p class="alert-text">Username is required.</p>
+            </div>
+            <div *ngIf="username?.errors?.['minlength']">
+              <p class="alert-text">Username must be at least 4 characters long.</p>
+            </div>
+          </div>
+        </tr>
+        <tr>
+
+          <td>
+            <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Firstname</mat-label>
               <input name="firstname" formControlName="firstName" matInput>
             </mat-form-field>
+
             <mat-form-field class="example-full-width" appearance="outline">
               <mat-label> Lastname </mat-label>
               <input name="lastname" formControlName="lastName" matInput>
-            </mat-form-field></td>
-            </tr>
-            <tr>
-                <div *ngIf="firstname?.invalid && (firstname?.dirty || firstname?.touched) || 
-                lastname?.invalid && (lastname?.dirty || lastname?.touched)">
-  
-                  <div *ngIf="lastname?.errors?.['required'] || firstname?.errors?.['required']">
-                    <p class="alert-text">Name is required.</p>
-                  </div>
-                  </div>
-              </tr>
-      
-       <tr>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <div *ngIf="firstname?.invalid && (firstname?.dirty || firstname?.touched)">
+
+            <div *ngIf="firstname?.errors?.['required']">
+              <p class="alert-text">Username is required.</p>
+            </div>
+            <div *ngIf="firstname?.errors?.['minlength']">
+              <p class="alert-text">Username must be at least 4 characters long.</p>
+            </div>
+          </div>
+        </tr>
+
+
+        <tr>
           <mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>Email</mat-label>
-              <input name="email" formControlName="email" matInput>
-            </mat-form-field><br>
+            <mat-label>Email</mat-label>
+            <input name="email" formControlName="email" matInput>
+          </mat-form-field><br>
         </tr>
         <tr>
-            <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+          <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
 
-                <div *ngIf="email?.errors?.['required']">
-                  <p class="alert-text">Email is required.</p>
-                </div>
-                <div *ngIf="email?.errors?.['email']">
-                  <p class="alert-text">Email is invalid.</p>
-                </div>
-                </div>
-        </tr>
-
-        <tr>
-            <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Password</mat-label>
-                <input  matInput formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Username" name="password">
-            </mat-form-field>
-        </tr>
-        <tr>
-            <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
-                <div *ngIf="password?.errors?.['required']">
-                  <p class="alert-text">Password is required.</p>
-                </div>
-                <div *ngIf="password?.errors?.['minlength']">
-                  <p class="alert-text">Password must be at least 8 characters long.</p>
-                </div>
-                </div>
-            <br>
+            <div *ngIf="email?.errors?.['required']">
+              <p class="alert-text">Email is required.</p>
+            </div>
+            <div *ngIf="email?.errors?.['email']">
+              <p class="alert-text">Email is invalid.</p>
+            </div>
+          </div>
         </tr>
 
         <tr>
-            <mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>Contact</mat-label>
-              <input name="contact" formControlName="contact" matInput>
-            </mat-form-field>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Username"
+              name="password">
+          </mat-form-field>
         </tr>
         <tr>
-            <div *ngIf="contact?.invalid && (contact?.dirty || contact?.touched)">
-                <div *ngIf="contact?.errors?.['required']">
-                  <p class="alert-text">Phone number is required.</p>
-                </div>
-                <div *ngIf="contact?.errors?.['minlength'] || contact?.errors?.['maxlength']">
-                  <p class="alert-text">Contact number must consist 10 numbers</p>
-                </div>
-                </div>
-            <br>
+          <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+            <div *ngIf="password?.errors?.['required']">
+              <p class="alert-text">Password is required.</p>
+            </div>
+            <div *ngIf="password?.errors?.['minlength']">
+              <p class="alert-text">Password must be at least 8 characters long.</p>
+            </div>
+          </div>
+        </tr>
+
+        <tr>
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Contact</mat-label>
+            <input type="tel" name="contact" formControlName="contact" matInput>
+          </mat-form-field>
         </tr>
         <tr>
-            <mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>EmployeeId</mat-label>
-              <input name="employeeId" formControlName="employeeId" matInput>
-            </mat-form-field>
-        </tr>
-          <tr>
-            <mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>Address</mat-label>
-              <input name="address" formControlName="address" matInput>
-            </mat-form-field>
+          <div *ngIf="contact?.invalid && (contact?.dirty || contact?.touched)">
+            <div *ngIf="contact?.errors?.['required']">
+              <p class="alert-text">Phone number is required.</p>
+            </div>
+            <div *ngIf="contact?.errors?.['minlength'] || contact?.errors?.['maxlength']">
+              <p class="alert-text">Contact number must consist 10 numbers</p>
+            </div>
+          </div>
         </tr>
         <tr>
-            <div *ngIf="address?.invalid && (address?.dirty || address?.touched)">
-                <div *ngIf="address?.errors?.['required']">
-                  <p class="alert-text">Address is required.</p>
-                </div>
-                </div>
-            <br>
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>EmployeeId</mat-label>
+            <input name="employeeId" formControlName="employeeId" matInput>
+          </mat-form-field>
         </tr>
-    <tr>
-            <td><mat-form-field class="example-full-width" appearance="outline">
+        <tr>
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Address</mat-label>
+            <input name="address" formControlName="address" matInput>
+          </mat-form-field>
+        </tr>
+        <tr>
+          <div *ngIf="address?.invalid && (address?.dirty || address?.touched)">
+            <div *ngIf="address?.errors?.['required']">
+              <p class="alert-text">Address is required.</p>
+            </div>
+          </div>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>City</mat-label>
               <input name="city" formControlName="city" matInput>
-          </mat-form-field>
-          <tr>
-            <div *ngIf="city?.invalid && (city?.dirty || city?.touched)">
-                <div *ngIf="city?.errors?.['required']">
-                  <p class="alert-text">City is required.</p>
-                </div>
-                </div>
-            <br>
+            </mat-form-field>
+        <tr>
+          <div *ngIf="city?.invalid && (city?.dirty || city?.touched)">
+            <div *ngIf="city?.errors?.['required']">
+              <p class="alert-text">City is required.</p>
+            </div>
+          </div>
         </tr>
 
 
 
         <mat-form-field class="example-full-width" appearance="outline">
-            <!-- <mat-label>State</mat-label>
+          <!-- <mat-label>State</mat-label>
             <input name="state" formControlName="state" matInput> -->
 
-            
-            <mat-label>State</mat-label>
-            <mat-select formControlName="state">
-                <mat-option value="Andhra Pradesh">Andhra Pradesh</mat-option>
-                <mat-option value="Arunachal Pradesh">Arunachal Pradesh</mat-option>
-                <mat-option value="Bihar">Bihar</mat-option>
-                <mat-option value="Chhattisgarh">Chhattisgarh</mat-option>
-                <mat-option value="Goa">Goa</mat-option>
-                <mat-option value="Gujarat">Gujarat</mat-option>
-                <mat-option value="Haryana">Haryana</mat-option>
-                <mat-option value="Himachal Pradesh">Himachal Pradesh</mat-option>
-                <mat-option value="Jharkhand">Jharkhand</mat-option>
-                <mat-option value="Karnataka">Karnataka</mat-option>
-                <mat-option value="Kerala">Kerala</mat-option>
-                <mat-option value="Assam">Assam</mat-option>
-                <mat-option value="Madhya Pradesh">Madhya Pradesh</mat-option>
-                <mat-option value="Maharashtra">Maharashtra</mat-option>
-                <mat-option value="Manipur">Manipur</mat-option>
-                <mat-option value="Meghalaya">Meghalaya</mat-option>
-                <mat-option value="Mizoram">Mizoram</mat-option>
-                <mat-option value="Nagaland">Nagaland</mat-option>
-                <mat-option value="Odisha">Odisha</mat-option>
-                <mat-option value="Punjab">Punjab</mat-option>
-                <mat-option value="Rajasthan">Rajasthan</mat-option>
-                <mat-option value="Sikkim">Sikkim</mat-option>
-                <mat-option value="Tamil Nadu">Tamil Nadu</mat-option>
-                <mat-option value="telangana">telangana</mat-option>
-                <mat-option value="Tripura">Tripura</mat-option>
-                <mat-option value="Uttarakhand">Uttarakhand</mat-option>
-                <mat-option value="Uttar Pradesh">Uttar Pradesh</mat-option>
-                <mat-option value="West Bengal">West Bengal</mat-option>
-                
-              </mat-select>
-          </mat-form-field></td>
-        </tr>    
-          <tr>        
-          <mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>Designation</mat-label>
-              <!-- <input name="designation" formControlName="designation" matInput> -->
-              <mat-select formControlName="Designation">
-                <mat-option value="Admin">Admin</mat-option>
-                <mat-option value="Manager">Manager</mat-option>
-                <mat-option value="Employee">Employee</mat-option>
-                
-            </mat-select>
-            </mat-form-field>
+
+          <mat-label>State</mat-label>
+          <mat-select formControlName="state">
+            <mat-option value="Andhra Pradesh">Andhra Pradesh</mat-option>
+            <mat-option value="Arunachal Pradesh">Arunachal Pradesh</mat-option>
+            <mat-option value="Bihar">Bihar</mat-option>
+            <mat-option value="Chhattisgarh">Chhattisgarh</mat-option>
+            <mat-option value="Goa">Goa</mat-option>
+            <mat-option value="Gujarat">Gujarat</mat-option>
+            <mat-option value="Haryana">Haryana</mat-option>
+            <mat-option value="Himachal Pradesh">Himachal Pradesh</mat-option>
+            <mat-option value="Jharkhand">Jharkhand</mat-option>
+            <mat-option value="Karnataka">Karnataka</mat-option>
+            <mat-option value="Kerala">Kerala</mat-option>
+            <mat-option value="Assam">Assam</mat-option>
+            <mat-option value="Madhya Pradesh">Madhya Pradesh</mat-option>
+            <mat-option value="Maharashtra">Maharashtra</mat-option>
+            <mat-option value="Manipur">Manipur</mat-option>
+            <mat-option value="Meghalaya">Meghalaya</mat-option>
+            <mat-option value="Mizoram">Mizoram</mat-option>
+            <mat-option value="Nagaland">Nagaland</mat-option>
+            <mat-option value="Odisha">Odisha</mat-option>
+            <mat-option value="Punjab">Punjab</mat-option>
+            <mat-option value="Rajasthan">Rajasthan</mat-option>
+            <mat-option value="Sikkim">Sikkim</mat-option>
+            <mat-option value="Tamil Nadu">Tamil Nadu</mat-option>
+            <mat-option value="telangana">telangana</mat-option>
+            <mat-option value="Tripura">Tripura</mat-option>
+            <mat-option value="Uttarakhand">Uttarakhand</mat-option>
+            <mat-option value="Uttar Pradesh">Uttar Pradesh</mat-option>
+            <mat-option value="West Bengal">West Bengal</mat-option>
+
+          </mat-select>
+        </mat-form-field>
+        </td>
         </tr>
-  
         <tr>
-            <mat-form-field appearance="outline">
-                <mat-label>Select Gender</mat-label>
-                <mat-select formControlName="gender">
-                  <mat-option value="male">Male</mat-option>
-                  <mat-option value="female">Female</mat-option>
-                  <mat-option value="others">Others</mat-option>
-                </mat-select>
-              </mat-form-field>
-             </tr>
-             <tr>
-            <mat-form-field class="example-full-width" appearance="outline">
-                <mat-label>Date of Joining</mat-label>
-                <input matInput name="dateOfJoining" formControlName="dateOfJoining"  [matDatepicker]="picker">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-            </tr>
-            <section>
-              <div class="example-label"></div>
-              <div class="example-button-row">
-                <button mat-dialog-close type="submit" color="primary" mat-raised-button>Submit</button>
-                </div>
-                </section>
-               
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Designation *</mat-label>
+            <!-- <input name="designation" formControlName="designation" matInput> -->
+            <mat-select formControlName="Designation">
+              <mat-option value="Admin">Admin</mat-option>
+              <mat-option value="Manager">Manager</mat-option>
+              <mat-option value="Employee">Employee</mat-option>
+
+            </mat-select>
+          </mat-form-field>
+        </tr>
+
+        <tr>
+          <mat-form-field appearance="outline">
+            <mat-label>Select Gender *</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option value="male">Male</mat-option>
+              <mat-option value="female">Female</mat-option>
+              <mat-option value="others">Others</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </tr>
+        <tr>
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Date of Joining</mat-label>
+            <input matInput name="dateOfJoining" formControlName="dateOfJoining" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </tr>
+        <section>
+          <div class="example-label"></div>
+          <div class="example-button-row">
+            <button mat-dialog-close type="submit" color="primary" mat-raised-button>Submit</button>
+          </div>
+        </section>
+
       </table>
-      
-        </form>
-      </div>
-      </mat-dialog-content>
+
+    </form>
+  </div>
+</mat-dialog-content>
 <!-- <mat-dialog-content>
     <div>  
     <form [formGroup]="empForm" (ngSubmit)="onSubmit()" class="example-form">

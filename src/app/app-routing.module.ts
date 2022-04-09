@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { EmployeesListComponent } from './components/employees-list/employees-list.component';
 import { AuthGuard } from './service/auth.guard';
+import { ManagerComponent } from './components/manager/manager.component';
 const routes: Routes = [
 
   {
@@ -20,6 +21,12 @@ const routes: Routes = [
   {
     path:"employees-list",
     component:EmployeesListComponent,
+    pathMatch:"full",
+    canActivate: [AuthGuard]
+  },
+  {
+    path:"manager",
+    component:ManagerComponent,
     pathMatch:"full",
     canActivate: [AuthGuard]
   }

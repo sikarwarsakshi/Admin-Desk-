@@ -29,6 +29,10 @@ role='';
         if(this.role === "ROLE_ADMIN"){
           this.router.navigate(['employees-list']);
         }
+        else if(this.role === "ROLE_MANAGER")
+        {
+            this.router.navigate(['manager']);
+        }
 
       },
       errData=>{

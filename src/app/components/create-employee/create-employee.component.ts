@@ -18,17 +18,17 @@ export class CreateEmployeeComponent implements OnInit {
       firstName: ['',[Validators.required]],
       lastName:['',[Validators.required]],
        email:['',[Validators.required]],
-      contact:['',[Validators.required]],
+      contact:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
       gender: this.floatLabelControl,
-      password:['',[Validators.required]],
+      password:['',[Validators.required,Validators.minLength(8)]],
       // status:[''],
       address:['',[Validators.required]],
       city:['',[Validators.required]],
       state:['',[Validators.required]],
-      designation:[''],
+      designation:['',[Validators.required]],
       username:['', [Validators.required,Validators.minLength(4)]],
-      employeeId:[''],
-      dateOfJoining:[''],
+      employeeId:['',[Validators.required]],
+      dateOfJoining:['',[Validators.required]],
       //bloodGroup:['']
     })
   }

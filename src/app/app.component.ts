@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ApiService } from "./service/api.service";
 
 
 @Component({
@@ -9,14 +10,17 @@ import { Component, OnInit } from "@angular/core";
 export class AppComponent implements OnInit{
   title = 'loginapp';
  
-
+  constructor(private apiService: ApiService){}
   ngOnInit(): void {
-    
+    this.checkUser();
   }
 
-  // checkUser(){
-  //   let accessToken = localStorage.getItem('accessToken');
-  //   let role = localStorage.getItem('role'); 
-  // let accessToken = localStorage.getItem('accessToken');
-  // }
+  checkUser(){
+    let role = localStorage.getItem('role'); 
+   let accessToken = localStorage.getItem('accessToken');
+    if(role!==null && accessToken!==null){
+      this.apiService.saveUserDetails(role,accessToken);
+      // this.apiService.setAccessToken(role);
+    }
+  }
 }

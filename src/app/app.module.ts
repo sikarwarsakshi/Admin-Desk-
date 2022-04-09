@@ -27,6 +27,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
+import { ManagerComponent } from './components/manager/manager.component';
+import { ApplyLeaveComponent } from './components/apply-leave/apply-leave.component';
 // import { MatInputModule } from '@angular/material/input';
 // @NgModule({
 //   declarations:,
@@ -44,7 +46,9 @@ import { MatSelectModule } from '@angular/material/select';
     EmployeesListComponent,
     EmployeeDetailsComponent,
     UpdateEmployeeComponent,
-    CreateEmployeeComponent
+    CreateEmployeeComponent,
+    ManagerComponent,
+    ApplyLeaveComponent
   ],
   imports: [
     BrowserModule,
