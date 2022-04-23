@@ -3,6 +3,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Employee } from '../model/employee';
+import { Leave, LeaveBody } from '../model/leave';
 
 
 @Injectable({
@@ -10,12 +11,14 @@ import { Employee } from '../model/employee';
 })
 export class ApiService {
   apiBaseUrl= environment.apiURL;
-  constructor(private http : HttpClient) { }
   role!:string;
   accessToken!:string;
   isAuthenticated:boolean =false;
+  
+  constructor(private http : HttpClient) { }
+ 
   postEmploye(data : any)
-  {
+   {
     return this.http.post<any>("http://localhost:3000/posts",data);
   }
 
@@ -78,4 +81,34 @@ export class ApiService {
   getAllLeaves(){
     return this.http.get<any>(`${this.apiBaseUrl}/api/auth/show-leaves`);
   }
+
+  changeLeaveStatus(id: string,status: string){
+    return this.http.post<any>(`${this.apiBaseUrl}/api/auth/change-status/${id}`,status);
+  }
+  formatList(leaves: Leave[]) {
+    for (let i in leaves) {
+        let startDate = new Date(leaves[i].startDate).toLocaleDateString();
+        leaves[i].startDate = startDate;
+        let endDate = new Date(leaves[i].endDate).toLocaleDateString();
+        leaves[i].endDate = endDate; 
+    }
+    return leaves;
+}
+
+applyLeave(id: string, leaveRequest: LeaveBody){
+  return this.http.post<any>(`${this.apiBaseUrl}/api/auth/apply-leave/${id}`, leaveRequest);
+}
+  // public findAllAppliedRequest()
+  // {
+  //   //checkForStatus
+    
+  //   this.data=localStorage.getItem("datas");
+  //   this.user=JSON.parse(this.data);  
+  //   var num=""+this.user.userId;
+  //   console.log(typeof(num));
+  //   console.log(num);
+  //   const url=this.platformContext1+"checkForStatus?userId="+this.user.userId;
+ 
+  //   return this.http.get<any>(url);
+  // }
 }

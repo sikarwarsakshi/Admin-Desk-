@@ -33,6 +33,9 @@ role='';
         {
             this.router.navigate(['manager']);
         }
+        else{
+          this.router.navigate(["user"]);
+        }
 
       },
       errData=>{

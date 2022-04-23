@@ -37,6 +37,7 @@ export class EmployeesListComponent implements OnInit {
     getAllUser(){
       this.apiService.getEmployeeList().subscribe(resData=>{
         this.employeeList = resData;
+        console.log(resData);
         this.dataSource = new MatTableDataSource<any>(this.employeeList);
         console.log(this.employeeList);
       });

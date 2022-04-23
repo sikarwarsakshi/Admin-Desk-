@@ -29,6 +29,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { ManagerComponent } from './components/manager/manager.component';
 import { ApplyLeaveComponent } from './components/apply-leave/apply-leave.component';
+import { LeaveComponent } from './components/leave/leave.component';
+import { UserComponent } from './components/user/user.component';
+// import { UsersComponent } from './users/users.component';
 // import { MatInputModule } from '@angular/material/input';
 // @NgModule({
 //   declarations:,
@@ -48,8 +51,9 @@ import { ApplyLeaveComponent } from './components/apply-leave/apply-leave.compon
     UpdateEmployeeComponent,
     CreateEmployeeComponent,
     ManagerComponent,
-    ApplyLeaveComponent
-  ],
+    ApplyLeaveComponent,
+    UserComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

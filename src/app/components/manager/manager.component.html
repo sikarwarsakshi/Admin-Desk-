@@ -44,7 +44,24 @@
         <th mat-header-cell *matHeaderCellDef> Status </th>
         <td mat-cell *matCellDef="let element"> {{element.status}} </td>
       </ng-container>
-  
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button [matMenuTriggerFor]="menu" [disabled]="element.disable">
+            <span class="material-icons">more_horiz</span>
+        </button>
+        <mat-menu #menu="matMenu">
+          <div>  
+          <button (click)="changeLeaveStatus(element.id,'Approved')" mat-menu-item>Approve Leave</button>
+        </div>
+          <button (click)="changeLeaveStatus(element.id,'Reject')" mat-menu-item>Reject Leave</button>
+        </mat-menu>
+      
+        </td>
+      </ng-container>
+
+     
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>

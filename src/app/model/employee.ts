@@ -13,4 +13,4 @@ export interface Employee {
     employeeId:string,
     dateOfJoining:Date,
     role:string[]
-    }
+}
