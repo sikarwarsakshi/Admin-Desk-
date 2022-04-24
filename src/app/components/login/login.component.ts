@@ -25,7 +25,14 @@ role='';
       this.apiService.login(this.username,this.password).subscribe(resData=>{
          this.accessToken = resData.accessToken;
          this.role = resData.roles[0];
-         this.apiService.saveUserDetails(this.role,this.accessToken);
+         let id = resData.id;
+        
+         this.apiService.getUserData(id).subscribe(userData=>{
+          this.apiService.userDetails = userData;
+          console.log(userData);
+         });
+        //  this.apiService.setUserData(resData);
+         this.apiService.saveUserDetails(this.role,this.accessToken,resData.id);
         if(this.role === "ROLE_ADMIN"){
           this.router.navigate(['employees-list']);
         }

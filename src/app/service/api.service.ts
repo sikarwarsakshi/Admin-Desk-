@@ -14,7 +14,8 @@ export class ApiService {
   role!:string;
   accessToken!:string;
   isAuthenticated:boolean =false;
-  
+  userDetails:any;
+  id!:string;
   constructor(private http : HttpClient) { }
  
   postEmploye(data : any)
@@ -58,14 +59,16 @@ export class ApiService {
     this.accessToken = accessToken;
   }
   
-  saveUserDetails(role:string,accessToken: string){
+  saveUserDetails(role:string,accessToken: string,id: string){
     this.accessToken = accessToken;
     this.role = role;
+    this.id = id; 
     if(this.accessToken!== undefined && this.role !== undefined){
       this.isAuthenticated = true;
     }
     localStorage.setItem('accessToken',accessToken);
     localStorage.setItem('role',role);
+    localStorage.setItem('id',id);
   }
   isLoggedIn(){
 		if(localStorage.getItem('accessToken')!==undefined) return true;
@@ -75,6 +78,7 @@ export class ApiService {
   logout(){
     localStorage.removeItem('accessToken');
     localStorage.removeItem('role');
+    localStorage.removeItem('id');
     this.isAuthenticated = false;
   }
 
@@ -98,6 +102,22 @@ export class ApiService {
 applyLeave(id: string, leaveRequest: LeaveBody){
   return this.http.post<any>(`${this.apiBaseUrl}/api/auth/apply-leave/${id}`, leaveRequest);
 }
+
+
+getUserData(id: string){
+  return this.http.get<any>(`${this.apiBaseUrl}/api/auth/user-detail/${id}`);
+}
+
+getUserLeave(id: string){
+  return this.http.get<any>(`${this.apiBaseUrl}/api/auth/get-leave/${id}`);
+}
+
+getUserByLeave(id: string,empId: string){
+  return this.http.get<any>(`${this.apiBaseUrl}/api/auth/get-user-by-leave/${empId}`);
+}
+// getUserdata(){
+  // return this.userDetails;
+// }
   // public findAllAppliedRequest()
   // {
   //   //checkForStatus

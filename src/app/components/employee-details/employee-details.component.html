@@ -1,6 +1,7 @@
 <mat-dialog-content>
   <h2>Employee Details</h2>
-  <table class="mat-elevation-z8 demo-table">
+  <div class="division">
+  <table class="demo-table">
     <tr>
       <th>Username</th>
       <td>{{ employee.username }}</td>
@@ -18,6 +19,11 @@
       <td>{{ employee.email }}</td>
     </tr>
     <tr>
+      <tr>
+        <th>Leave Balance</th>
+        <td>{{ employee.leaveBalance }}</td>
+      </tr>
+      <tr>
       <th>Designation</th>
       <td>{{ employee.designation }}</td>
     </tr>
@@ -27,7 +33,7 @@
     </tr>
     <tr>
       <th>Date Of Joining</th>
-      <td>{{ employee.dateOfJoining }}</td>
+      <td>{{ dateOfJoining }}</td>
     </tr>
     <tr>
       <th>Gender</th>
@@ -47,8 +53,9 @@
       <td>{{ employee.state }}</td>
     </tr>
   </table> 
-
-  <!--
+</div>
+</mat-dialog-content>
+  <!--</div>
 </mat-dialog-content> -->
 
 <!-- <table mat-table class="mat-elevation-z8 demo-table">

@@ -180,7 +180,7 @@
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Designation *</mat-label>
             <!-- <input name="designation" formControlName="designation" matInput> -->
-            <mat-select formControlName="Designation">
+            <mat-select formControlName="designation">
               <mat-option value="Admin">Admin</mat-option>
               <mat-option value="Manager">Manager</mat-option>
               <mat-option value="Employee">Employee</mat-option>
@@ -199,12 +199,19 @@
             </mat-select>
           </mat-form-field>
         </tr>
+        <!-- <tr>
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Date of Joining</mat-label>
+            <input matInput name="dateOfJoining" type="date" formControlName="dateOfJoining" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </tr> -->
         <tr>
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Date of Joining</mat-label>
-            <input matInput name="dateOfJoining" formControlName="dateOfJoining" [matDatepicker]="picker">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <input matInput name="dateOfJoining" type="date" formControlName="dateOfJoining">
+           
           </mat-form-field>
         </tr>
         <section>

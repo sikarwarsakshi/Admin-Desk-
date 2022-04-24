@@ -31,6 +31,7 @@ import { ManagerComponent } from './components/manager/manager.component';
 import { ApplyLeaveComponent } from './components/apply-leave/apply-leave.component';
 import { LeaveComponent } from './components/leave/leave.component';
 import { UserComponent } from './components/user/user.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 // import { UsersComponent } from './users/users.component';
 // import { MatInputModule } from '@angular/material/input';
 // @NgModule({
@@ -73,7 +74,8 @@ import { UserComponent } from './components/user/user.component';
     MatRadioModule,
     MatNativeDateModule,
     MatMomentDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

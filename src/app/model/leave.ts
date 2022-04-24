@@ -14,5 +14,7 @@ export interface LeaveBody{
     endDate: Date;
     leaveBalance: string,
     status : string,
-    discription : string
+    discription : string,
+    emailId: string;
+    count: string;
 }

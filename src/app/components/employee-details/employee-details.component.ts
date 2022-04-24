@@ -12,9 +12,11 @@ export class EmployeeDetailsComponent implements OnInit {
   
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
-  employee!: Employee;
+  employee!: any;
+  dateOfJoining!:string;
   ngOnInit(): void {
     this.employee=this.data.employee; 
+    this.dateOfJoining = new Date(this.employee.dateOfJoining).toLocaleDateString();
     console.log(this.employee);
   }
 

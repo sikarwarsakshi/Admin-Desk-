@@ -18,8 +18,9 @@ export class AppComponent implements OnInit{
   checkUser(){
     let role = localStorage.getItem('role'); 
    let accessToken = localStorage.getItem('accessToken');
-    if(role!==null && accessToken!==null){
-      this.apiService.saveUserDetails(role,accessToken);
+   let id = localStorage.getItem('id');
+    if(role!==null && accessToken!==null && id!==null){
+      this.apiService.saveUserDetails(role,accessToken,id);
       // this.apiService.setAccessToken(role);
     }
   }
