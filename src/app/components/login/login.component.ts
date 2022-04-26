@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
+import Swal from 'sweetalert2';
 
 
 
@@ -16,6 +17,7 @@ password='';
 accessToken='';
 role='';
 isClicked=false;
+
   constructor(private apiService: ApiService,
     private router: Router) { }
     public showPassword: boolean = false;
@@ -28,7 +30,7 @@ isClicked=false;
 
   ngOnInit(): void {
     this.checkUser();
-    
+   
   }
 
   onSubmit()
@@ -60,7 +62,16 @@ isClicked=false;
       errData=>{
           console.log(errData);
 
-      });
+          let reason = errData.error.message;
+          Swal.fire({
+            icon: 'error',
+            title: 'Authentication Failed',
+            text: 'Invalid UserId Password'
+          })
+          console.log(reason);
+
+      }
+      );
     //console.log("form is submitted");
       // if((this.credentials.username!='' && this.credentials.password!='') && (this.credentials.username!=null && this.credentials.password))
       // {

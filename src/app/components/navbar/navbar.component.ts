@@ -11,8 +11,9 @@ export class NavbarComponent implements OnInit {
 
   constructor(private apiService: ApiService,
     private router: Router) { }
-
+  isAuthenticated =false;
   ngOnInit(): void {
+    this.isAuthenticated = this.apiService.isAuthenticated;
   }
 
   logout(){

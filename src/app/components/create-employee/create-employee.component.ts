@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Employee } from 'src/app/model/employee';
 import { ApiService } from 'src/app/service/api.service';
-import {MatSnackBar,} from '@angular/material/snack-bar';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -66,16 +67,22 @@ export class CreateEmployeeComponent implements OnInit {
     }
 
 
-    this.apiService.createEmployee(employee).subscribe((resData:any) =>{
-      // this.snackBar.open(resData?.message);
-      this.snackBar.open(resData?.message, '', {   
-          duration: 2000,   
-          verticalPosition: 'top'   
-        });
+    this.apiService.createEmployee(employee).subscribe(resData=>{
+      this.snackBar.open('Submitted archived');
       // this.snackBar.openFromComponent('Created ', {
       //   duration: this.durationInSeconds * 1000,
       // });
+
       console.log(resData);
+    },
+    errData=>{
+      let reason = errData.error.message;
+      Swal.fire({
+        icon: 'error',
+        title: 'Registration Failed',
+        text: reason
+      })
+      console.log(reason);
     });
     console.log(this.empForm.value);
   }
