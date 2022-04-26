@@ -61,6 +61,7 @@ export class UpdateEmployeeComponent implements OnInit {
       dateOfJoining: new Date(),
       gender: values.gender,
       address: values.address,
+      leaveBalance: values.leaveBalance,
       username: values.username,
       role: this.data.employee.role
     };

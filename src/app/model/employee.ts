@@ -12,5 +12,6 @@ export interface Employee {
     contact:string,
     employeeId:string,
     dateOfJoining:Date,
+    leaveBalance:string,
     role:string[]
 }

@@ -32,6 +32,8 @@ import { ApplyLeaveComponent } from './components/apply-leave/apply-leave.compon
 import { LeaveComponent } from './components/leave/leave.component';
 import { UserComponent } from './components/user/user.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+//import { MatIconModule } from '@angular/material/icon';
 // import { UsersComponent } from './users/users.component';
 // import { MatInputModule } from '@angular/material/input';
 // @NgModule({
@@ -75,7 +77,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatNativeDateModule,
     MatMomentDateModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressBarModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

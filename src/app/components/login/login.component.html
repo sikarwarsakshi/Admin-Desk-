@@ -1,3 +1,6 @@
+<div *ngIf="isClicked">
+<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
 <div class="bootstrap-wrapper">
     <div class="container mt">
 
@@ -13,20 +16,37 @@
                 <!--Creating Form Filed-->
                 <form (ngSubmit)="onSubmit()">
 
-                    <mat-form-field class="full-width" appearance="outline">
+                    <mat-form-field hintLabel="Enter valid username" class="full-width" appearance="outline">
                         <mat-label>Username</mat-label>
                         <input [(ngModel)]="username" name="username" required type="text" matInput />
-                    </mat-form-field>
+                        
+                    </mat-form-field><br>
 
-                    <mat-form-field class="full-width" appearance="outline">
+                    <mat-form-field hintLabel="Minimum 8 Characters"  class="full-width" appearance="outline">
+                        
                         <mat-label>Password</mat-label>
-                        <input [(ngModel)]="password" name="password" required type="password" matInput />
+                        <!--<input [(ngModel)]="password" name="password" required type="showpassword" matInput/>--> 
+                     <input matInput  [(ngModel)]="password" [type]="showPassword ? 'text' : 'password'" name="password">
+                       
+                        <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                          
+                        
+                            {{showPassword?'visibility_off':'visibility'}}
+                        </mat-icon>
+
+
+                        
                     </mat-form-field>
 
                     <div class="container text-center">
                         <button type="submit" mat-raised-button color="primary">Login</button>
+                        <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+
+
                     </div>
+                    
                 </form>
+                <!--<mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
             </div>
         </div>
     </div>

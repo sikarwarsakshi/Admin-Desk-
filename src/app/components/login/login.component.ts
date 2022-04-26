@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,15 +15,25 @@ username='';
 password='';
 accessToken='';
 role='';
+isClicked=false;
   constructor(private apiService: ApiService,
     private router: Router) { }
+    public showPassword: boolean = false;
+
+    public togglePasswordVisibility(): void {
+      this.showPassword = !this.showPassword;
+      
+    }
+    
 
   ngOnInit(): void {
     this.checkUser();
+    
   }
 
   onSubmit()
   {
+      this.isClicked=true;
       this.apiService.login(this.username,this.password).subscribe(resData=>{
          this.accessToken = resData.accessToken;
          this.role = resData.roles[0];
@@ -47,6 +59,7 @@ role='';
       },
       errData=>{
           console.log(errData);
+
       });
     //console.log("form is submitted");
       // if((this.credentials.username!='' && this.credentials.password!='') && (this.credentials.username!=null && this.credentials.password))

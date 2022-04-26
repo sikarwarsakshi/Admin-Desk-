@@ -51,6 +51,7 @@ export class CreateEmployeeComponent implements OnInit {
       contact: values.contact,
       employeeId: values.employeeId,
       dateOfJoining: values.dateOfJoining,
+      leaveBalance: "12",
       role: ['user']
     }
 

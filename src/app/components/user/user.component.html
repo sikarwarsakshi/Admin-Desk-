@@ -1,5 +1,8 @@
+<div class="apply-button" align="end">
 <button mat-raised-button color="primary" (click)="applyLeave()">Apply For Leave</button>
-<p> {{ leaveBalance }}</p>
+</div>
+
+<p> Remaining Leave={{ leaveBalance }}</p>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z1">
 
     <!--- Note that these columns can be defined in any order.
