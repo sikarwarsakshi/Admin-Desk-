@@ -217,7 +217,7 @@
         <section>
           <div class="example-label"></div>
           <div class="example-button-row">
-            <button mat-dialog-close type="submit" color="primary" mat-raised-button>Submit</button>
+            <button mat-dialog-close [disabled]="empForm.status=='INVALID'" type="submit" color="primary" mat-raised-button>Submit</button>
           </div>
         </section>
 

@@ -33,6 +33,8 @@ import { LeaveComponent } from './components/leave/leave.component';
 import { UserComponent } from './components/user/user.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 //import { MatIconModule } from '@angular/material/icon';
 // import { UsersComponent } from './users/users.component';
 // import { MatInputModule } from '@angular/material/input';
@@ -79,7 +81,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatSelectModule,
     MatPaginatorModule,
     MatProgressBarModule,
-    
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
