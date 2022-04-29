@@ -31,7 +31,7 @@ export class CreateEmployeeComponent implements OnInit {
       state:['',[Validators.required]],
       designation:['',[Validators.required]],
       username:['', [Validators.required,Validators.minLength(4)]],
-      employeeId:['',[Validators.required]],
+      //employeeId:['',[Validators.required]],
       dateOfJoining:['',[Validators.required]],
       //bloodGroup:['']
     })

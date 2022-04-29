@@ -88,7 +88,13 @@ export class EmployeesListComponent implements OnInit {
 
 applyFilter(event: Event) {
   const filterValue = (event.target as HTMLInputElement).value;
+  
+  if(filterValue=="admin" || filterValue=="manager" || filterValue=="employee")
   this.dataSource.filter = filterValue.trim().toLowerCase();
+   else
+  this.getAllUser();
+  
+ 
 }
 logout(){
   this.apiService.logout();

@@ -8,14 +8,18 @@ import { ApiService } from 'src/app/service/api.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  disable=false;
   constructor(private apiService: ApiService,
     private router: Router) { }
   isAuthenticated =false;
   ngOnInit(): void {
     this.isAuthenticated = this.apiService.isAuthenticated;
+    
   }
-
+isEnabled()
+{
+  this.disable=true;
+}
   logout(){
     this.apiService.logout();
     this.router.navigate(["login"]);
