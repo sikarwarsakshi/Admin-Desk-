@@ -68,7 +68,7 @@ export class CreateEmployeeComponent implements OnInit {
 
 
     this.apiService.createEmployee(employee).subscribe(resData=>{
-      this.snackBar.open('Submitted archived');
+      this.snackBar.open('User Registered Successfully');
       // this.snackBar.openFromComponent('Created ', {
       //   duration: this.durationInSeconds * 1000,
       // });

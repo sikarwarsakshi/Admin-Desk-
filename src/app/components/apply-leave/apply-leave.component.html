@@ -1,16 +1,24 @@
+
 <mat-dialog-content>
+  
     <div>
       <form [formGroup]="leaveForm" (ngSubmit)="onSubmit()" class="example-form">
         
         <!-- <h3>Enter Details!!</h3> -->
         <mat-toolbar color="primary">
-<mat-toolbar-row><span> Enter Details</span></mat-toolbar-row></mat-toolbar>
+       <mat-toolbar-row><span> Apply For Leave</span>
+        <mat-icon [mat-dialog-close]="true" style="margin-left: 55%;margin-top: 5px;width:10%;">close</mat-icon>
+      
+      </mat-toolbar-row>
+     
+      </mat-toolbar>
         <table class="example-full-width" cellspacing="0">
           <tr>
             <td>
-              <mat-form-field class="example-full-width" appearance="outline">
-                <mat-label>Employee id</mat-label>
+              <mat-form-field class="example-full-width" style="width: 100%;"  appearance="outline">
+                <mat-label>Employee Id</mat-label>
                 <input name="username" [value]="empId" matInput disabled>
+                
               </mat-form-field>
             </td>
           </tr>
@@ -35,11 +43,10 @@
           </tr>
   
           <tr>
-        
-            <mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>Description</mat-label>
-              <input type="text" name="description" formControlName="discription" maxlength="10" matInput>
-            </mat-form-field>
+            <mat-form-field class="example-full-width" style="width: 100%;" appearance="outline">
+              <mat-label>Leave Reason</mat-label>
+              <textarea name="description" formControlName="discription"  matInput></textarea>
+            </mat-form-field> 
           </tr>
        
           <section>

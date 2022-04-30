@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Employees } from '../employees';
 import { FormBuilder,FormGroup} from '@angular/forms';
 import { ApiService } from 'src/app/service/api.service';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource, _MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { EmployeeDetailsComponent } from '../employee-details/employee-details.component';
 import { UpdateEmployeeComponent } from '../update-employee/update-employee.component';
 import { CreateEmployeeComponent } from '../create-employee/create-employee.component';
 import { Router } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
+import { DataSource } from '@angular/cdk/collections';
 
 
 @Component({
@@ -32,6 +34,10 @@ export class EmployeesListComponent implements OnInit {
   ngOnInit(): void {
 
     this.getAllUser();
+    this.dataSource.filterPredicate = function (employeeList,filter) {
+      return employeeList.designation.toLocaleLowerCase() == filter.toLocaleLowerCase();
+    }
+     
   }
 
     getAllUser(){
@@ -88,13 +94,13 @@ export class EmployeesListComponent implements OnInit {
 
 applyFilter(event: Event) {
   const filterValue = (event.target as HTMLInputElement).value;
-  
-  if(filterValue=="admin" || filterValue=="manager" || filterValue=="employee")
   this.dataSource.filter = filterValue.trim().toLowerCase();
-   else
-  this.getAllUser();
+  //   if(filterValue=="admin" || filterValue=="manager" || filterValue=="employee")
+  // { this.dataSource.filter = filterValue.trim().toLowerCase();
+  //   console.log(this.dataSource);  
+  // } else
+  //   this.getAllUser();
   
- 
 }
 logout(){
   this.apiService.logout();

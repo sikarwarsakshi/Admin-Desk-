@@ -17,7 +17,7 @@ export class UserComponent implements OnInit , AfterViewInit{
   panelOpenState = false;
   leaveBalance!: string;
 
-  displayedColumns: string[] = ['serial','startDate', 'endDate', 'status','description'];
+  displayedColumns: string[] = ['startDate', 'endDate', 'status','description'];
   constructor(private apiService:ApiService,private router:Router
     , private dialog: MatDialog) 
   {  }
