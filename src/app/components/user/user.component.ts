@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Leave } from 'src/app/model/leave';
@@ -15,19 +16,24 @@ import { ApplyLeaveComponent } from '../apply-leave/apply-leave.component';
 export class UserComponent implements OnInit , AfterViewInit{
   dataSource!: MatTableDataSource<Leave[]>;
   panelOpenState = false;
-  leaveBalance!: string;
-
+  leaveBalance!: string; 
+    
+ 
   displayedColumns: string[] = ['startDate', 'endDate', 'status','description'];
+  
   constructor(private apiService:ApiService,private router:Router
     , private dialog: MatDialog) 
-  {  }
-  ngAfterViewInit(): void {
- 
+  {  
+    
+  }
+  // @ViewChild(MatPaginator) paginator: MatPaginator;
+  ngAfterViewInit(): void {    
   }
     
   ngOnInit(): void {
   
   this.apiService.getUserData(this.apiService.id).subscribe(resData=>{
+    
     this.leaveBalance = resData.leaveBalance;
   });
   this.getLeaves();   
@@ -37,16 +43,18 @@ export class UserComponent implements OnInit , AfterViewInit{
     this.apiService.getUserLeave(this.apiService.id).subscribe(resData=>{
       resData = this.apiService.formatList(resData);
       this.dataSource = new MatTableDataSource(resData);
-     
+      
     })
   }
   applyLeave(){
     this.dialog.open(ApplyLeaveComponent);
-    this.dialog.afterAllClosed.subscribe(()=>{
-      this.ngOnInit();
-    });
-    // this.leaveBalance = this.apiService.userDetails.leaveBalance;
+
+    // this.dialog.afterAllClosed.subscribe(()=>{
+    //   this.ngOnInit();
+    // });
+    // // this.leaveBalance = this.apiService.userDetails.leaveBalance;
   
   }
   
 }
+ 

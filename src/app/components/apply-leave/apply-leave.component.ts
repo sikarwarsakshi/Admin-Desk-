@@ -12,13 +12,13 @@ import Swal from 'sweetalert2';
   providers: [DatePipe]
 })
 export class ApplyLeaveComponent implements OnInit {
-  empId="EMP01";
+  empId:any;
 
   // isDisabled = false;
   leaveForm = this.fb.group({
     startDate: [''],
     endDate: [''],
-    username: [this.empId],
+    username: [''],
     discription: ['']
   })
   id="1";
@@ -44,6 +44,7 @@ export class ApplyLeaveComponent implements OnInit {
       this.leaveBalance = this.data.leaveBalance;
       this.emailId = this.data.email;
     this.empId = this.data.employeeId;
+  
     
     });
     
@@ -62,16 +63,23 @@ export class ApplyLeaveComponent implements OnInit {
     var startingDate=this.convert(date1);
     console.log("start date"+startingDate+"cuuurent date: "+cuurentDate);
     if(startingDate<cuurentDate)
-    {Swal.fire({
+    {
+      Swal.fire({
       icon: 'error',
       title: 'Invalid From Date',
       text: 'Leaves only for future!'
-    })}
+      
+    }) 
+    }
     else
     {
     var date2 = new Date(values.endDate);
     var dat=this.convert(date2);
-    var diffDays =date2.getDate() - date1.getDate(); 
+    // var diffDays =date2.getDate() - date1.getDate(); 
+
+    var Time = date2.getTime() - date1.getTime(); 
+    var diffDays = Time / (1000 * 3600 * 24);
+    // var diffDays=dat-startingDate;
     console.log(diffDays);
     if(diffDays>0)
     {

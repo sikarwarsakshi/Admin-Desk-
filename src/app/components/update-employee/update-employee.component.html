@@ -1,13 +1,15 @@
 <mat-dialog-content>
     <div>
         <form [formGroup]="empForm" (ngSubmit)="onSubmitEmployeeForm()" class="example-form">
-            <h1>Enter Details!!</h1>
+            <mat-icon [mat-dialog-close]="true" style="margin-left: 95%;margin-top: 5px;width:10%;">close</mat-icon>
+            <h2>Update Details!!</h2>
+      
             <table class="form-fields" cellspacing="0">
                 <tr>
                     <td>
                         <mat-form-field class="form-fields" appearance="outline">
                             <mat-label>Username</mat-label>
-                            <input name="username" formControlName="username" matInput>
+                            <input name="username" [value]="userNameForUpdate"  matInput disabled>
                         </mat-form-field>
                     </td>
                 </tr>
@@ -31,12 +33,12 @@
                     <input name="email" formControlName="email" matInput>
                 </mat-form-field>
             </tr>
-            <tr>
+            <!-- <tr>
                 <mat-form-field class="form-fields" appearance="outline">
                     <mat-label>EmployeeId</mat-label>
                     <input name="employeeId" formControlName="employeeId" matInput>
                 </mat-form-field>
-            </tr>
+            </tr> -->
             <tr>
                 <mat-form-field class="form-fields" appearance="outline">
                     <mat-label>Address</mat-label>
@@ -54,17 +56,60 @@
 
 
                 <tr>
-                    <mat-form-field class="form-fields" appearance="outline">
-                        <mat-label>State</mat-label>
-                        <input name="state" formControlName="state" matInput>
-                    </mat-form-field>
+                    
+        <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
+            <!-- <mat-label>State</mat-label>
+              <input name="state" formControlName="state" matInput> -->
+  
+  
+            <mat-label >State</mat-label>
+            <mat-select formControlName="state">
+              <mat-option value="Andhra Pradesh">Andhra Pradesh</mat-option>
+              <mat-option value="Arunachal Pradesh">Arunachal Pradesh</mat-option>
+              <mat-option value="Bihar">Bihar</mat-option>
+              <mat-option value="Chhattisgarh">Chhattisgarh</mat-option>
+              <mat-option value="Goa">Goa</mat-option>
+              <mat-option value="Gujarat">Gujarat</mat-option>
+              <mat-option value="Haryana">Haryana</mat-option>
+              <mat-option value="Himachal Pradesh">Himachal Pradesh</mat-option>
+              <mat-option value="Jharkhand">Jharkhand</mat-option>
+              <mat-option value="Karnataka">Karnataka</mat-option>
+              <mat-option value="Kerala">Kerala</mat-option>
+              <mat-option value="Assam">Assam</mat-option>
+              <mat-option value="Madhya Pradesh">Madhya Pradesh</mat-option>
+              <mat-option value="Maharashtra">Maharashtra</mat-option>
+              <mat-option value="Manipur">Manipur</mat-option>
+              <mat-option value="Meghalaya">Meghalaya</mat-option>
+              <mat-option value="Mizoram">Mizoram</mat-option>
+              <mat-option value="Nagaland">Nagaland</mat-option>
+              <mat-option value="Odisha">Odisha</mat-option>
+              <mat-option value="Punjab">Punjab</mat-option>
+              <mat-option value="Rajasthan">Rajasthan</mat-option>
+              <mat-option value="Sikkim">Sikkim</mat-option>
+              <mat-option value="Tamil Nadu">Tamil Nadu</mat-option>
+              <mat-option value="telangana">telangana</mat-option>
+              <mat-option value="Tripura">Tripura</mat-option>
+              <mat-option value="Uttarakhand">Uttarakhand</mat-option>
+              <mat-option value="Uttar Pradesh">Uttar Pradesh</mat-option>
+              <mat-option value="West Bengal">West Bengal</mat-option>
+  
+            </mat-select>
+          </mat-form-field>
+           
+  
                 </tr>
 
                 <tr>
-                <mat-form-field class="form-fields" appearance="outline">
-                    <mat-label>Designation</mat-label>
-                    <input name="designation" formControlName="designation" matInput>
-                </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
+                        <mat-label>Designation *</mat-label>
+                        <!-- <input name="designation" formControlName="designation" matInput> -->
+                        <mat-select formControlName="designation">
+                          <mat-option value="Admin">Admin</mat-option>
+                          <mat-option value="Manager">Manager</mat-option>
+                          <mat-option value="Employee">Employee</mat-option>
+            
+                        </mat-select>
+                      </mat-form-field>
             </tr>
             <tr>
                 <mat-form-field class="form-fields" appearance="outline">
@@ -73,10 +118,14 @@
                 </mat-form-field>
             </tr>
             <tr>
-                <mat-form-field class="form-fields" appearance="outline">
-                    <mat-label>Gender</mat-label>
-                    <input name="gender" formControlName="gender" matInput>
-                </mat-form-field>
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Select Gender *</mat-label>
+                    <mat-select formControlName="gender">
+                      <mat-option value="male">Male</mat-option>
+                      <mat-option value="female">Female</mat-option>
+                      <mat-option value="others">Others</mat-option>
+                    </mat-select>
+                  </mat-form-field>
             </tr>
             <tr>
                 <mat-form-field class="form-fields" appearance="outline">
@@ -86,7 +135,7 @@
             </tr>
             <tr>
                 <section>
-                    <div class="button-row">
+                    <div class="button-row" style="float: left;" >
                         <button type="submit" color="primary" mat-raised-button>Update</button>
                     </div>
                 </section>

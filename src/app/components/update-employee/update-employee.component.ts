@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Employee } from 'src/app/model/employee';
 import { ApiService } from 'src/app/service/api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-update-employee',
@@ -10,6 +11,8 @@ import { ApiService } from 'src/app/service/api.service';
   styleUrls: ['./update-employee.component.css']
 })
 export class UpdateEmployeeComponent implements OnInit {
+
+  userNameForUpdate=this.data.employee.username;
   isDetails: boolean= false;
   empForm = this.formBuilder.group({
     firstName: [this.data.employee.firstname],
@@ -67,10 +70,16 @@ export class UpdateEmployeeComponent implements OnInit {
     };
     
     employee.address = values.address;
-
+    
     this.apiService.updateEmployee(this.data.empId,employee).subscribe(
       resData=>{console.log(resData)}
     );
+    Swal.fire({
+      icon: 'success',
+      title: 'Done',
+      text: 'Successfully Updated!'
+      
+    })
     
   }
 

@@ -1,13 +1,16 @@
 <mat-dialog-content>
   <div>
     <form [formGroup]="empForm" (ngSubmit)="onSubmit()" class="example-form">
-      <h3>Enter Details!!</h3>
+      <mat-icon [mat-dialog-close]="true" style="margin-left: 95%;margin-top: 5px;width:10%;">close</mat-icon>
+           
+      <h3 style="float: left;">Create User!!</h3>
       <table class="example-full-width" cellspacing="0">
         <tr>
           <td>
             <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Username</mat-label>
               <input name="username" formControlName="username" matInput>
+              
             </mat-form-field>
           </td>
         </tr>
