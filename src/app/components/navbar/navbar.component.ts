@@ -20,8 +20,13 @@ isEnabled()
 {
   this.disable=true;
 }
+changePassword()
+  {
+    
+  }
   logout(){
     this.apiService.logout();
-    this.router.navigate(["login"]);
+    this.router.navigate([""]);
   }
+  
 }

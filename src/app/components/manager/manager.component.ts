@@ -34,9 +34,16 @@ export class ManagerComponent implements OnInit {
   }
 
   changeLeaveStatus(id: string, status: string){
+    var answer = window.confirm("Are You Sure ? you want to update satatus : "+status);
+   if(answer)
+   {
       this.apiService.changeLeaveStatus(id,status).subscribe(()=>{
         this.ngOnInit();
       });
+    }else
+    {
+
+    }
   }
   employeeDetails(id: string,empId: string){
     this.apiService.getUserByLeave(id,empId).subscribe(resData=>{

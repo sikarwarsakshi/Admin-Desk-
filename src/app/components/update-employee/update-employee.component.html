@@ -4,7 +4,9 @@
             <mat-icon [mat-dialog-close]="true" style="margin-left: 95%;margin-top: 5px;width:10%;">close</mat-icon>
             <h2>Update Details!!</h2>
       
+
             <table class="form-fields" cellspacing="0">
+            <!-- userName  -->
                 <tr>
                     <td>
                         <mat-form-field class="form-fields" appearance="outline">
@@ -14,6 +16,7 @@
                     </td>
                 </tr>
 
+                <!-- firstName and LastName -->
                 <tr>
 
                     <td>
@@ -27,41 +30,48 @@
                         </mat-form-field>
                     </td>
                 </tr>
+                <!-- gender  -->
+
                 <tr>
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>Select Gender *</mat-label>
+                        <mat-select formControlName="gender">
+                          <mat-option value="male">Male</mat-option>
+                          <mat-option value="female">Female</mat-option>
+                          <mat-option value="others">Others</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </tr>
+
+                <!-- email  -->
+         <tr>
                 <mat-form-field class="form-fields" appearance="outline">
                     <mat-label>Email</mat-label>
                     <input name="email" formControlName="email" matInput>
                 </mat-form-field>
-            </tr>
-            <!-- <tr>
-                <mat-form-field class="form-fields" appearance="outline">
-                    <mat-label>EmployeeId</mat-label>
-                    <input name="employeeId" formControlName="employeeId" matInput>
-                </mat-form-field>
-            </tr> -->
-            <tr>
-                <mat-form-field class="form-fields" appearance="outline">
-                    <mat-label>Address</mat-label>
-                    <input name="address" formControlName="address" matInput>
-                </mat-form-field>
-            </tr>
+            </tr> 
+
+            
+      <!-- contact -->
+      <tr>
+        <mat-form-field class="form-fields" appearance="outline">
+            <mat-label>Contact</mat-label>
+            <input name="contact" formControlName="contact" matInput>
+        </mat-form-field>
+    </tr>
+
+            <!-- city -->
                 <tr>
                         <mat-form-field class="form-fields" appearance="outline">
                             <mat-label>City</mat-label>
                             <input name="city" formControlName="city" matInput>
                         </mat-form-field>
-                 
-                </tr>
-
-
-
-                <tr>
+                 </tr>
+                
+       <!-- State  -->
+        <tr>
                     
         <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
-            <!-- <mat-label>State</mat-label>
-              <input name="state" formControlName="state" matInput> -->
-  
-  
             <mat-label >State</mat-label>
             <mat-select formControlName="state">
               <mat-option value="Andhra Pradesh">Andhra Pradesh</mat-option>
@@ -92,41 +102,32 @@
               <mat-option value="Uttarakhand">Uttarakhand</mat-option>
               <mat-option value="Uttar Pradesh">Uttar Pradesh</mat-option>
               <mat-option value="West Bengal">West Bengal</mat-option>
-  
-            </mat-select>
+          </mat-select>
           </mat-form-field>
-           
-  
-                </tr>
-
-                <tr>
-                    <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
-                        <mat-label>Designation *</mat-label>
-                        <!-- <input name="designation" formControlName="designation" matInput> -->
-                        <mat-select formControlName="designation">
-                          <mat-option value="Admin">Admin</mat-option>
-                          <mat-option value="Manager">Manager</mat-option>
-                          <mat-option value="Employee">Employee</mat-option>
-            
-                        </mat-select>
-                      </mat-form-field>
-            </tr>
+          </tr>
+                
+            <!-- Address -->
             <tr>
                 <mat-form-field class="form-fields" appearance="outline">
-                    <mat-label>Contact</mat-label>
-                    <input name="contact" formControlName="contact" matInput>
+                    <mat-label>Address</mat-label>
+                    <input name="address" formControlName="address" matInput>
                 </mat-form-field>
             </tr>
+
+            <!-- Designation -->
             <tr>
-                <mat-form-field appearance="outline" style="width: 100%;">
-                    <mat-label>Select Gender *</mat-label>
-                    <mat-select formControlName="gender">
-                      <mat-option value="male">Male</mat-option>
-                      <mat-option value="female">Female</mat-option>
-                      <mat-option value="others">Others</mat-option>
+                <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
+                    <mat-label>Designation *</mat-label>
+                    <!-- <input name="designation" formControlName="designation" matInput> -->
+                    <mat-select formControlName="designation">
+                      <mat-option value="Admin">Admin</mat-option>
+                      <mat-option value="Manager">Manager</mat-option>
+                      <mat-option value="Employee">Employee</mat-option>
+        
                     </mat-select>
                   </mat-form-field>
-            </tr>
+        </tr>
+            
             <tr>
                 <mat-form-field class="form-fields" appearance="outline">
                     <mat-label>DateOfJoining</mat-label>

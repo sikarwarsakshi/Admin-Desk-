@@ -5,11 +5,13 @@
            
       <h3 style="float: left;">Create User!!</h3>
       <table class="example-full-width" cellspacing="0">
+
+        <!-- user name -->
         <tr>
           <td>
             <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Username</mat-label>
-              <input name="username" formControlName="username" matInput>
+              <input name="username"  formControlName="username" matInput>
               
             </mat-form-field>
           </td>
@@ -26,7 +28,7 @@
           </div>
         </tr>
         <tr>
-
+<!-- firstName and LastName -->
           <td>
             <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Firstname</mat-label>
@@ -50,8 +52,20 @@
             </div>
           </div>
         </tr>
+        
+        <!-- gender -->
+        <tr>
+          <mat-form-field appearance="outline">
+            <mat-label>Select Gender *</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option value="male">Male</mat-option>
+              <mat-option value="female">Female</mat-option>
+              <mat-option value="others">Others</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </tr> 
 
-
+<!-- email  -->
         <tr>
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Email</mat-label>
@@ -70,24 +84,7 @@
           </div>
         </tr>
 
-        <tr>
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Password</mat-label>
-            <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Username"
-              name="password">
-          </mat-form-field>
-        </tr>
-        <tr>
-          <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
-            <div *ngIf="password?.errors?.['required']">
-              <p class="alert-text">Password is required.</p>
-            </div>
-            <div *ngIf="password?.errors?.['minlength']">
-              <p class="alert-text">Password must be at least 8 characters long.</p>
-            </div>
-          </div>
-        </tr>
-
+        <!-- Contact -->
         <tr>
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Contact</mat-label>
@@ -104,25 +101,9 @@
             </div>
           </div>
         </tr>
-        <!-- <tr>
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>EmployeeId</mat-label>
-            <input name="employeeId" formControlName="employeeId" matInput>
-          </mat-form-field>
-        </tr> -->
-        <tr>
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Address</mat-label>
-            <input name="address" formControlName="address" matInput>
-          </mat-form-field>
-        </tr>
-        <tr>
-          <div *ngIf="address?.invalid && (address?.dirty || address?.touched)">
-            <div *ngIf="address?.errors?.['required']">
-              <p class="alert-text">Address is required.</p>
-            </div>
-          </div>
-        </tr>
+ 
+
+        <!-- City -->
         <tr>
           <td>
             <mat-form-field class="example-full-width" appearance="outline">
@@ -136,9 +117,12 @@
             </div>
           </div>
         </tr>
+          </td></tr>
 
-
-
+          <!-- State -->
+        
+        <tr>
+          <td>
         <mat-form-field class="example-full-width" appearance="outline">
           <!-- <mat-label>State</mat-label>
             <input name="state" formControlName="state" matInput> -->
@@ -179,37 +163,22 @@
         </mat-form-field>
         </td>
         </tr>
+        <!-- address -->
         <tr>
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Designation *</mat-label>
-            <!-- <input name="designation" formControlName="designation" matInput> -->
-            <mat-select formControlName="designation">
-              <mat-option value="Admin">Admin</mat-option>
-              <mat-option value="Manager">Manager</mat-option>
-              <mat-option value="Employee">Employee</mat-option>
-
-            </mat-select>
+            <mat-label>Address</mat-label>
+            <input name="address" formControlName="address" matInput>
           </mat-form-field>
         </tr>
-
         <tr>
-          <mat-form-field appearance="outline">
-            <mat-label>Select Gender *</mat-label>
-            <mat-select formControlName="gender">
-              <mat-option value="male">Male</mat-option>
-              <mat-option value="female">Female</mat-option>
-              <mat-option value="others">Others</mat-option>
-            </mat-select>
-          </mat-form-field>
+          <div *ngIf="address?.invalid && (address?.dirty || address?.touched)">
+            <div *ngIf="address?.errors?.['required']">
+              <p class="alert-text">Address is required.</p>
+            </div>
+          </div>
         </tr>
-        <!-- <tr>
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Date of Joining</mat-label>
-            <input matInput name="dateOfJoining" type="date" formControlName="dateOfJoining" [matDatepicker]="picker">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        </tr> -->
+
+        <!-- date of joining -->
         <tr>
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Date of Joining</mat-label>
@@ -217,6 +186,43 @@
            
           </mat-form-field>
         </tr>
+
+        
+        <!-- Designation -->
+        <tr>
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Designation</mat-label>
+            <!-- <input name="designation" formControlName="designation" matInput> -->
+            <mat-select formControlName="designation">
+              <mat-option value="admin">Admin</mat-option>
+              <mat-option value="manager">Manager</mat-option>
+              <mat-option value="user">Employee</mat-option>
+
+            </mat-select>
+          </mat-form-field>
+        </tr>
+
+        <!-- password -->
+        <tr>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Username"
+              name="password">
+          </mat-form-field>
+        </tr>
+        <tr>
+          <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+            <div *ngIf="password?.errors?.['required']">
+              <p class="alert-text">Password is required.</p>
+            </div>
+            <div *ngIf="password?.errors?.['minlength']">
+              <p class="alert-text">Password must be at least 8 characters long.</p>
+            </div>
+          </div>
+        </tr>
+        
+
+
         <section>
           <div class="example-label"></div>
           <div class="example-button-row">
@@ -228,100 +234,4 @@
 
     </form>
   </div>
-</mat-dialog-content>
-<!-- <mat-dialog-content>
-    <div>  
-    <form [formGroup]="empForm" (ngSubmit)="onSubmit()" class="example-form">
-         <h1>Enter Details!!</h1>
-          <table class="example-full-width" cellspacing="0">
-            <tr>  
-              <td><mat-form-field class="example-full-width" appearance="outline">
-                <mat-label>Username</mat-label>
-                <input name="username" formControlName="username" matInput>
-              </mat-form-field></td>
-              </tr>
-            <tr>
-            <td><mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>Firstname</mat-label>
-              <input name="firstname" formControlName="firstName" matInput>
-            </mat-form-field>
-            <mat-form-field class="example-full-width" appearance="outline">
-              <mat-label> Lastname </mat-label>
-              <input name="lastname" formControlName="lastName" matInput>
-            </mat-form-field></td>
-            </tr>
-      
-         
-            <td></td>
-          
-          </table>
-          <mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>Email</mat-label>
-              <input name="email" formControlName="email" matInput>
-            </mat-form-field><br>
-      
-            <mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>EmployeeId</mat-label>
-              <input name="employeeId" formControlName="employeeId" matInput>
-            </mat-form-field>
-        
-          <p>
-            <mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>Address</mat-label>
-              <input name="address" formControlName="address" matInput>
-            </mat-form-field>
-            
-        
-          <table class="example-full-width" cellspacing="0"><tr>
-            <td><mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>City</mat-label>
-              <input name="city" formControlName="city" matInput>
-          </mat-form-field></td>
-          <br></tr>
-              
-      
-            
-            <table><td><tr><mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>State</mat-label>
-              <input name="state" formControlName="state" matInput>
-            </mat-form-field></tr></td><br></table>
-      
-          
-          <mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>Designation</mat-label>
-              <input name="designation" formControlName="designation" matInput>
-            </mat-form-field><br>
-      
-            <mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>Contact</mat-label>
-              <input name="contact" formControlName="contact" matInput>
-            </mat-form-field><br>
-             
-            <mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>Gender</mat-label>
-              <mat-radio-group formControlName="gender">
-                <mat-radio-button value="Male">Male</mat-radio-button>
-                <mat-radio-button value="Female">Female</mat-radio-button>
-                <mat-radio-button value="Others">Others</mat-radio-button>
-              </mat-radio-group>
-            </mat-form-field><br>
-      
-            <mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>Date of Joining</mat-label>
-              <input matInput name="dateOfJoining" formControlName="dateOfJoining"  [matDatepicker]="picker">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-      
-            <section>
-              <div class="example-label"></div>
-              <div class="example-button-row">
-                <button  type="submit" mat-raised-button>Submit</button>
-                </div>
-                </section>
-               
-      </table>
-      
-        </form>
-      </div>
-      </mat-dialog-content> -->
+</mat-dialog-content> 

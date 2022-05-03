@@ -34,9 +34,9 @@ export class EmployeesListComponent implements OnInit {
   ngOnInit(): void {
 
     this.getAllUser();
-    this.dataSource.filterPredicate = function (employeeList,filter) {
-      return employeeList.designation.toLocaleLowerCase() == filter.toLocaleLowerCase();
-    }
+    // this.dataSource.filterPredicate = function (employeeList,filter) {
+    //   return employeeList.designation.toLocaleLowerCase() == filter.toLocaleLowerCase();
+    // }
      
   }
 
@@ -94,16 +94,18 @@ export class EmployeesListComponent implements OnInit {
 
 applyFilter(event: Event) {
   const filterValue = (event.target as HTMLInputElement).value;
-  this.dataSource.filter = filterValue.trim().toLowerCase();
-  //   if(filterValue=="admin" || filterValue=="manager" || filterValue=="employee")
-  // { this.dataSource.filter = filterValue.trim().toLowerCase();
-  //   console.log(this.dataSource);  
-  // } else
-  //   this.getAllUser();
+  //this.dataSource.filter = filterValue.trim().toLowerCase();
+   
+      
+    if(filterValue=="admin" || filterValue=="manager" || filterValue=="employee")
+  { this.dataSource.filter = filterValue.trim().toLowerCase();
+    console.log(this.dataSource);  
+  } else
+    this.getAllUser();
   
 }
 logout(){
   this.apiService.logout();
-  this.router.navigate(["login"]);
+  this.router.navigate([""]);
 }
 }

@@ -4,6 +4,7 @@ import { Employee } from 'src/app/model/employee';
 import { ApiService } from 'src/app/service/api.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
@@ -18,16 +19,16 @@ export class CreateEmployeeComponent implements OnInit {
     private snackBar: MatSnackBar,
     private apiService: ApiService) { 
     this.empForm = this.formBuilder.group({
-      firstName: ['',[Validators.required]],
+      firstName: ['',[Validators.required,Validators.pattern('^[a-zA-Z_ ]*$')]],
       // username: ['',[Validators.required]],
-      lastName:['',[Validators.required]],
+      lastName:['',[Validators.required,Validators.pattern('^[a-zA-Z_ ]*$')]],
        email:['',[Validators.required, Validators.email]],
-      contact:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
+      contact:['',[Validators.required,Validators.minLength(10),Validators.pattern("^[6-9]{1}[0-9]{9}$"),Validators.maxLength(10)]],
       gender: this.floatLabelControl,
       password:['',[Validators.required,Validators.minLength(8)]],
       // status:[''],
       address:['',[Validators.required]],
-      city:['',[Validators.required]],
+      city:['',[Validators.required,Validators.maxLength(15)]],
       state:['',[Validators.required]],
       designation:['',[Validators.required]],
       username:['', [Validators.required,Validators.minLength(4)]],
@@ -40,11 +41,11 @@ export class CreateEmployeeComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(){
+    // console.log("user role is"+values.role);
     console.log("formgroup : ",this.empForm)
     console.log("formgroup status: ",this.empForm.status);
     if(this.empForm.invalid) {
       console.log('Please Fill all the details');
-      
       return;
     }
     var values = this.empForm.value;
@@ -63,16 +64,23 @@ export class CreateEmployeeComponent implements OnInit {
       employeeId: values.employeeId,
       dateOfJoining: values.dateOfJoining,
       leaveBalance: "12",
-      role: ['user']
+      role: [values.designation]
     }
 
 
     this.apiService.createEmployee(employee).subscribe(resData=>{
-      this.snackBar.open('User Registered Successfully');
+    //  this.snackBar.open('User Registered Successfully');
+      Swal.fire({
+        icon: 'success',
+        title: 'Done',
+        text:"Registration Successfully"
+        
+      })
+
       // this.snackBar.openFromComponent('Created ', {
       //   duration: this.durationInSeconds * 1000,
       // });
-
+      console.log(employee);
       console.log(resData);
     },
     errData=>{
@@ -97,4 +105,5 @@ export class CreateEmployeeComponent implements OnInit {
   get city() {return this.empForm.get('city');}
   get state() {return this.empForm.get('state');}
 
+  get designation() {return this.empForm.get('designation');}
 } 

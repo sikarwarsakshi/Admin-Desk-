@@ -5,8 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component'; 
 import { LoginComponent } from './components/login/login.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -35,21 +34,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-//import { MatIconModule } from '@angular/material/icon';
-// import { UsersComponent } from './users/users.component';
-// import { MatInputModule } from '@angular/material/input';
-// @NgModule({
-//   declarations:,
-//   imports:,
-//   exports:
-// })
-// class AppModule{}
-
+ 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    HomeComponent,
+    NavbarComponent, 
     LoginComponent,
     EmployeesListComponent,
     EmployeeDetailsComponent,

@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
+ 
+import { MatDialog } from '@angular/material/dialog'; 
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Leave } from 'src/app/model/leave';
